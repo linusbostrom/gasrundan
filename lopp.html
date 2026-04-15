@@ -65,62 +65,62 @@ async function init() {
     return;
   }
 
-  // Update page title
   document.title = 'Runda ' + runda.nr + ' – Gåsrundan 2026';
 
   const hasResults = runda.resultat && runda.resultat.length > 0;
+  const prevRunda = data.rundor.find(r => r.nr === nr - 1);
+  const nextRunda = data.rundor.find(r => r.nr === nr + 1);
 
-  // Article section
-  const artikelHTML = (runda.rubrik || runda.artikel) ? `
+  // ── Sub-nav ──
+  const pills = data.rundor.map(r => {
+    const isActive = r.nr === nr;
+    const haRes = r.resultat && r.resultat.length > 0;
+    const cls = ['sub-nav-pill', isActive ? 'active' : '', (!haRes && !isActive) ? 'no-results' : ''].filter(Boolean).join(' ');
+    return `<a class="${cls}" href="lopp.html?runda=${r.nr}">${r.nr}</a>`;
+  }).join('');
+
+  const prevLink = prevRunda
+    ? `<a class="sub-nav-arrow" href="lopp.html?runda=${prevRunda.nr}">&#8249;</a>`
+    : `<span class="sub-nav-arrow disabled">&#8249;</span>`;
+  const nextLink = nextRunda
+    ? `<a class="sub-nav-arrow" href="lopp.html?runda=${nextRunda.nr}">&#8250;</a>`
+    : `<span class="sub-nav-arrow disabled">&#8250;</span>`;
+
+  const subNavHTML = `
+    <nav class="sub-nav">
+      ${prevLink}
+      <div class="sub-nav-pills">${pills}</div>
+      ${nextLink}
+    </nav>`;
+
+  // ── Artikel (vänster kolumn på desktop) ──
+  const artikelHTML = `
     <div class="res-header">
       <div class="res-eyebrow">Runda ${runda.nr} &nbsp;·&nbsp; ${formatDate(runda.datum, runda.dag)}</div>
-      ${runda.rubrik ? `<h1 class="res-title">${runda.rubrik}</h1>` : ''}
+      <h1 class="res-title">${runda.rubrik || 'Runda ' + runda.nr}</h1>
       ${runda.artikel ? `<p class="res-article">${runda.artikel}</p>` : ''}
-    </div>` : `
-    <div class="res-header">
-      <div class="res-eyebrow">Runda ${runda.nr} &nbsp;·&nbsp; ${formatDate(runda.datum, runda.dag)}</div>
-      <h1 class="res-title">Runda ${runda.nr}</h1>
     </div>`;
 
-  // Meta boxes — only show if we have data
+  // ── Meta (höger kolumn på desktop, under artikeln på mobil) ──
   const hasVader = runda.vader;
   const hasPersInfo = runda.tidtagare || runda.nummergivare;
 
-  const metaHTML = (hasVader || hasPersInfo) ? `
-    <div class="meta-row">
-      ${hasVader ? `
-      <div class="meta-box">
-        <div class="meta-item">
-          <div class="meta-label">Väder</div>
-          <div class="meta-value">${runda.vader}</div>
+  const metaHTML = `
+    <div class="res-meta-col">
+      <div class="meta-row">
+        <div class="meta-box">
+          ${hasVader ? `<div class="meta-item"><div class="meta-label">Väder</div><div class="meta-value">${runda.vader}</div></div>` : ''}
+          <div class="meta-item"><div class="meta-label">Bana</div><div class="meta-value">${runda.stracka_meter} m</div></div>
         </div>
-        <div class="meta-item">
-          <div class="meta-label">Bana</div>
-          <div class="meta-value">${runda.stracka_meter} m</div>
-        </div>
-      </div>` : `
-      <div class="meta-box">
-        <div class="meta-item">
-          <div class="meta-label">Bana</div>
-          <div class="meta-value">${runda.stracka_meter} m</div>
-        </div>
-      </div>`}
-      ${hasPersInfo ? `
-      <div class="meta-box">
-        ${runda.tidtagare ? `
-        <div class="meta-item">
-          <div class="meta-label">Tidtagare</div>
-          <div class="meta-value">${runda.tidtagare}</div>
+        ${hasPersInfo ? `
+        <div class="meta-box">
+          ${runda.tidtagare ? `<div class="meta-item"><div class="meta-label">Tidtagare</div><div class="meta-value">${runda.tidtagare}</div></div>` : ''}
+          ${runda.nummergivare ? `<div class="meta-item"><div class="meta-label">Nummergivare</div><div class="meta-value">${runda.nummergivare}</div></div>` : ''}
         </div>` : ''}
-        ${runda.nummergivare ? `
-        <div class="meta-item">
-          <div class="meta-label">Nummergivare</div>
-          <div class="meta-value">${runda.nummergivare}</div>
-        </div>` : ''}
-      </div>` : ''}
-    </div>` : '';
+      </div>
+    </div>`;
 
-  // Results
+  // ── Resultatlista ──
   const resultsHTML = hasResults ? `
     <div class="results-title">Resultatlista</div>
     ${runda.resultat.map(p => `
@@ -128,11 +128,17 @@ async function init() {
         <span class="res-nr">${formatPlats(p.plats)}</span>
         <span class="res-name">${p.namn}</span>
         <span class="res-tid">${p.tid}</span>
-      </div>`).join('')}
-    ` : `
+      </div>`).join('')}` : `
     <p class="standing-note">Resultaten är inte publicerade ännu — kom tillbaka senare!</p>`;
 
-  main.innerHTML = artikelHTML + metaHTML + `<div>${resultsHTML}</div>`;
+  main.innerHTML = subNavHTML + `
+    <div class="res-desktop-wrap">
+      <div class="res-main-col">
+        ${artikelHTML}
+        <div>${resultsHTML}</div>
+      </div>
+      ${metaHTML}
+    </div>`;
 }
 
 init();
