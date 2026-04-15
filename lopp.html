@@ -11,11 +11,11 @@
 
 <header>
   <nav class="topbar">
-    <a class="topbar-home" href="index.html">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-      Alla rundor
-    </a>
     <a class="topbar-logo" href="index.html">Gåsrundan</a>
+    <a class="topbar-right" href="index.html">
+      Alla rundor
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
   </nav>
   <div class="jubileum-strip">Jubileum &nbsp;·&nbsp; 50 år &nbsp;·&nbsp; 2026</div>
 </header>
@@ -68,15 +68,15 @@ async function init() {
   document.title = 'Runda ' + runda.nr + ' – Gåsrundan 2026';
 
   const hasResults = runda.resultat && runda.resultat.length > 0;
-  const prevRunda = data.rundor.find(r => r.nr === nr - 1);
-  const nextRunda = data.rundor.find(r => r.nr === nr + 1);
+  const prevRunda  = data.rundor.find(r => r.nr === nr - 1);
+  const nextRunda  = data.rundor.find(r => r.nr === nr + 1);
 
   // ── Sub-nav ──
   const pills = data.rundor.map(r => {
     const isActive = r.nr === nr;
     const haRes = r.resultat && r.resultat.length > 0;
     const cls = ['sub-nav-pill', isActive ? 'active' : '', (!haRes && !isActive) ? 'no-results' : ''].filter(Boolean).join(' ');
-    return `<a class="${cls}" href="lopp.html?runda=${r.nr}">${r.nr}</a>`;
+    return `<a class="${cls}" href="lopp.html?runda=${r.nr}">Runda ${r.nr}</a>`;
   }).join('');
 
   const prevLink = prevRunda
@@ -93,16 +93,20 @@ async function init() {
       ${nextLink}
     </nav>`;
 
-  // ── Artikel (vänster kolumn på desktop) ──
-  const artikelHTML = `
-    <div class="res-header">
+  // ── Intro: eyebrow + rubrik (full bredd) ──
+  const introHTML = `
+    <div class="res-intro">
       <div class="res-eyebrow">Runda ${runda.nr} &nbsp;·&nbsp; ${formatDate(runda.datum, runda.dag)}</div>
       <h1 class="res-title">${runda.rubrik || 'Runda ' + runda.nr}</h1>
-      ${runda.artikel ? `<p class="res-article">${runda.artikel}</p>` : ''}
     </div>`;
 
-  // ── Meta (höger kolumn på desktop, under artikeln på mobil) ──
-  const hasVader = runda.vader;
+  // ── Artikel ──
+  const artikelHTML = runda.artikel
+    ? `<div class="res-article-area"><p class="res-article">${runda.artikel}</p></div>`
+    : `<div class="res-article-area"></div>`;
+
+  // ── Meta ──
+  const hasVader   = runda.vader;
   const hasPersInfo = runda.tidtagare || runda.nummergivare;
 
   const metaHTML = `
@@ -114,30 +118,28 @@ async function init() {
         </div>
         ${hasPersInfo ? `
         <div class="meta-box">
-          ${runda.tidtagare ? `<div class="meta-item"><div class="meta-label">Tidtagare</div><div class="meta-value">${runda.tidtagare}</div></div>` : ''}
+          ${runda.tidtagare   ? `<div class="meta-item"><div class="meta-label">Tidtagare</div><div class="meta-value">${runda.tidtagare}</div></div>` : ''}
           ${runda.nummergivare ? `<div class="meta-item"><div class="meta-label">Nummergivare</div><div class="meta-value">${runda.nummergivare}</div></div>` : ''}
         </div>` : ''}
       </div>
     </div>`;
 
   // ── Resultatlista ──
-  const resultsHTML = hasResults ? `
-    <div class="results-title">Resultatlista</div>
-    ${runda.resultat.map(p => `
-      <div class="result-row">
-        <span class="res-nr">${formatPlats(p.plats)}</span>
-        <span class="res-name">${p.namn}</span>
-        <span class="res-tid">${p.tid}</span>
-      </div>`).join('')}` : `
-    <p class="standing-note">Resultaten är inte publicerade ännu — kom tillbaka senare!</p>`;
+  const resultsHTML = hasResults
+    ? `<div class="results-title">Resultatlista</div>
+       ${runda.resultat.map(p => `
+         <div class="result-row">
+           <span class="res-nr">${formatPlats(p.plats)}</span>
+           <span class="res-name">${p.namn}</span>
+           <span class="res-tid">${p.tid}</span>
+         </div>`).join('')}`
+    : `<p class="standing-note">Resultaten är inte publicerade ännu — kom tillbaka senare!</p>`;
 
-  main.innerHTML = subNavHTML + `
+  main.innerHTML = subNavHTML + introHTML + `
     <div class="res-desktop-wrap">
-      <div class="res-main-col">
-        ${artikelHTML}
-        <div>${resultsHTML}</div>
-      </div>
+      ${artikelHTML}
       ${metaHTML}
+      <div class="res-results-area">${resultsHTML}</div>
     </div>`;
 }
 
