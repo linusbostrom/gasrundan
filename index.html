@@ -17,11 +17,9 @@
 </header>
 
 <div id="hero-container"></div>
+<div id="tagline-strip"></div>
 
-<div class="info-strip">
-  <span>📍 Fam. Boström-Jonssons garage, Tallgatan 16</span>
-  <span>🕔 Start alltid kl. 17:15</span>
-</div>
+
 
 <main class="main">
   <h2 class="section-head">Program &amp; resultat 2026</h2>
@@ -88,30 +86,27 @@ async function init() {
   // Hero
   const nextIndex = states.indexOf('next');
   const heroEl = document.getElementById('hero-container');
+  const taglineEl = document.getElementById('tagline-strip');
+  const taglineHTML = `<div class="info-strip" style="font-style:italic;">Rörelseglädje &nbsp;·&nbsp; Samvaro &nbsp;·&nbsp; Tradition</div>`;
   if (nextIndex >= 0) {
     const r = data.rundor[nextIndex];
     heroEl.innerHTML = `
       <div class="hero">
         <div class="hero-eyebrow">Nästa runda</div>
-        <div class="hero-title">Runda ${r.nr} — ${formatDate(r.datum, r.dag)}</div>
-        <div class="hero-sub">${r.stracka_meter} meter &nbsp;·&nbsp; Kl. ${data.start_tid} &nbsp;·&nbsp; Tallgatan 16</div>
-        <div class="hero-meta">
-          <div class="hero-meta-item">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Anmälan från kl. ${data.anmalan_tid}
-          </div>
-          <div class="hero-meta-item">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-            Alla åldrar, gratis
-          </div>
+        <div class="hero-title">${formatDate(r.datum, r.dag)}</div>
+        <div class="hero-sub" style="margin-bottom:1rem;">Runda ${r.nr} &nbsp;·&nbsp; ${r.stracka_meter} meter</div>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <div class="hero-meta-item">${data.plats}</div>
+          <div class="hero-meta-item">Start kl. ${data.start_tid} &nbsp;·&nbsp; Anmälan från ${data.anmalan_tid}</div>
         </div>
       </div>`;
+    taglineEl.innerHTML = taglineHTML;
   } else {
-    // Season over
     heroEl.innerHTML = `
       <div class="hero-done">
         <p>Gåsrundan 2026 är avslutad — tack alla deltagare! <strong>Vi ses 2027.</strong></p>
       </div>`;
+    taglineEl.innerHTML = taglineHTML;
   }
 
   // Program list
