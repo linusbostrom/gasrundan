@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poängliga – Gåsrundan 2026</title>
+  <meta name="description" content="Poängliga Gåsrundan 2026.">
+  <link rel="stylesheet" href="css/gasrundan.css">
+  <style>
+    .points-key {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin: 0.25rem 0 1.5rem;
+    }
+    .points-pill {
+      font-size: 12px; font-weight: 600;
+      background: var(--gc-card);
+      border: 0.5px solid var(--gc-border);
+      border-radius: 20px; padding: 3px 10px;
+      color: var(--gc-muted);
+    }
+    .points-pill span { color: var(--gc-text); font-weight: 700; }
+
+    .standing-full { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
+    .standing-full th {
+      text-align: left;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gc-muted);
+      padding: 0.4rem 0.5rem 0.4rem 0;
+      border-bottom: 0.5px solid var(--gc-border);
+    }
+    .standing-full th.right { text-align: right; }
+    .standing-full td {
+      padding: 0.65rem 0.5rem 0.65rem 0;
+      border-bottom: 0.5px solid var(--gc-border);
+      font-size: 14px; vertical-align: middle;
+    }
+    .standing-full td:first-child {
+      color: var(--gc-muted); font-size: 12px;
+      font-weight: 700; width: 24px;
+    }
+    .standing-full td.total {
+      text-align: right;
+      font-weight: 700;
+      font-family: var(--gc-andika);
+      font-size: 17px;
+      color: var(--gc-orange);
+      white-space: nowrap;
+    }
+
+    .round-dots { display: flex; gap: 3px; flex-wrap: wrap; }
+    .round-dot {
+      width: 20px; height: 20px; border-radius: 50%;
+      font-size: 10px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      background: var(--gc-surface); color: var(--gc-muted);
+    }
+    .round-dot.scored {
+      background: var(--gc-orange-light); color: var(--gc-orange);
+    }
+    .round-dot.top {
+      background: var(--gc-orange); color: #fff;
+    }
+
+    .updated-note {
+      font-size: 12px; color: var(--gc-muted);
+      font-style: italic; margin-bottom: 1.5rem;
+    }
+    .standing-note {
+      font-size: 13px; color: var(--gc-muted);
+      font-style: italic; padding-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="topbar">
+    <a class="topbar-home" href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      Startsidan
+    </a>
+    <a class="topbar-logo" href="index.html">Gåsrundan</a>
+  </nav>
+  <div class="jubileum-strip">Jubileum &nbsp;·&nbsp; 50 år &nbsp;·&nbsp; 2026</div>
+</header>
+
+<main class="main" id="main-content">
+  <p class="loading">Laddar…</p>
+</main>
+
+<footer class="site-footer">
+  © 2026 Gåsrundan &nbsp;·&nbsp; Skapad av Johan Piribauer 1977 &nbsp;·&nbsp; Arrangeras av Lennart Jonsson och vänner
+</footer>
+
+<script>
+const POINTS = [12, 9, 7, 4, 3, 2, 1];
+
+function pts(plats) {
+  if (plats >= 1 && plats <= 7) return POINTS[plats - 1];
+  return 0.5;
+}
+
+function fmtPts(p) {
+  return Number.isInteger(p) ? p + ' p' : p.toFixed(1) + ' p';
+}
+
+async function init() {
+  const main = document.getElementById('main-content');
+
+  let data;
+  try {
+    const res = await fetch('data/2026.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    data = await res.json();
+  } catch (e) {
+    main.innerHTML = '<p class="error-msg">Kunde inte ladda data.</p>';
+    return;
+  }
+
+  const stallning = data.stallning || [];
+  const doneRundor = data.rundor.filter(r => r.resultat && r.resultat.length > 0);
+
+  if (!stallning.length || !doneRundor.length) {
+    main.innerHTML = `
+      <h1 class="section-head" style="padding-top:1.25rem">Poängliga</h1>
+      <p class="standing-note">Inga rundor avklarade ännu — poängligan publiceras efter runda 1.</p>`;
+    return;
+  }
+
+  const rows = stallning.map((p, i) =>
+    `<tr>
+      <td>${p.plats}</td>
+      <td>${p.namn}</td>
+      <td class="total">${fmtPts(p.poang)}</td>
+    </tr>`
+  ).join('');
+
+  main.innerHTML = `
+    <h1 class="section-head" style="padding-top:1.25rem">Poängliga</h1>
+    <p class="updated-note">Efter ${doneRundor.length} av 10 rundor.</p>
+
+    <div class="points-key">
+      <div class="points-pill">1:a <span>12 p</span></div>
+      <div class="points-pill">2:a <span>9 p</span></div>
+      <div class="points-pill">3:a <span>7 p</span></div>
+      <div class="points-pill">4:a <span>4 p</span></div>
+      <div class="points-pill">5:a <span>3 p</span></div>
+      <div class="points-pill">6:a <span>2 p</span></div>
+      <div class="points-pill">7:a <span>1 p</span></div>
+      <div class="points-pill">Övriga <span>½ p</span></div>
+    </div>
+
+    <table class="standing-full">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Namn</th>
+          <th class="right">Totalt</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+init();
+</script>
+</body>
+</html>

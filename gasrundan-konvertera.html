@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gåsrundan — Konvertera resultatlista</title>
+<style>
+  :root {
+    --orange: #E05A1A;
+    --orange-light: #FAEDE5;
+    --bg: #F5F0E8;
+    --card: #FAF7F2;
+    --text: #1A1714;
+    --muted: #7A746B;
+    --border: rgba(90,80,60,0.15);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    font-size: 15px; padding: 2rem 1.25rem;
+    max-width: 680px; margin: 0 auto;
+  }
+  h1 {
+    font-size: 20px; font-weight: 700; margin-bottom: 0.25rem;
+    letter-spacing: 0.02em;
+  }
+  .sub { font-size: 13px; color: var(--muted); margin-bottom: 1.5rem; }
+  .label {
+    display: block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.4rem;
+  }
+  textarea {
+    width: 100%; border: 0.5px solid var(--border);
+    border-radius: 8px; padding: 0.75rem;
+    font-size: 13px; font-family: inherit;
+    background: var(--card); color: var(--text);
+    resize: vertical; min-height: 200px;
+    line-height: 1.6;
+  }
+  .btn-row { display: flex; gap: 8px; margin: 0.75rem 0 1.25rem; }
+  button {
+    padding: 0.5rem 1.25rem; border-radius: 20px;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+    font-family: inherit; transition: opacity 0.15s;
+  }
+  button:hover { opacity: 0.85; }
+  .btn-primary { background: var(--orange); color: #fff; border: none; }
+  .btn-secondary { background: var(--orange-light); color: var(--orange); border: 0.5px solid rgba(224,90,26,0.3); }
+  .btn-small { font-size: 11px; padding: 4px 12px; }
+
+  .output-wrap { margin-top: 0.5rem; }
+  .output-header {
+    display: flex; align-items: center;
+    justify-content: space-between; margin-bottom: 0.6rem;
+  }
+  .output-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th {
+    text-align: left; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); padding: 0.4rem 0.6rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  td { padding: 0.5rem 0.6rem; border-bottom: 0.5px solid var(--border); }
+  tr:nth-child(even) td { background: rgba(0,0,0,0.025); }
+  .tid { font-family: monospace; font-size: 13px; }
+
+  .warn {
+    font-size: 12px; color: #8a5f00;
+    background: #fff8ec; border: 0.5px solid #e8c87a;
+    border-radius: 6px; padding: 6px 10px; margin-bottom: 6px;
+  }
+  .status {
+    font-size: 13px; color: var(--muted);
+    margin-top: 0.75rem; font-style: italic; min-height: 1.4em;
+  }
+  .status.ok { color: #2a6b3a; font-style: normal; }
+
+  hr { border: none; border-top: 0.5px solid var(--border); margin: 1.5rem 0; }
+
+  .instructions {
+    font-size: 13px; color: var(--muted); line-height: 1.7;
+  }
+  .instructions li { margin-left: 1.25rem; margin-bottom: 0.25rem; }
+</style>
+</head>
+<body>
+
+<h1>Gåsrundan</h1>
+<p class="sub">Konvertera resultatlista → Airtable</p>
+
+<span class="label">Klistra in listan från PDF eller mejl</span>
+<textarea id="input" placeholder="1) Dylan Sjödin 3.40
+2) Linn Sjödin 3.57
+3) Liam Edström 4.05
+..."></textarea>
+
+<div class="btn-row">
+  <button class="btn-primary" onclick="convert()">Konvertera</button>
+  <button class="btn-secondary" onclick="reset()">Rensa</button>
+</div>
+
+<div id="out" class="output-wrap"></div>
+<div id="status" class="status"></div>
+
+<hr>
+
+<div class="instructions">
+  <span class="label">Så här gör du</span>
+  <ol>
+    <li>Klistra in resultatlistan i fältet ovan</li>
+    <li>Klicka <strong>Konvertera</strong></li>
+    <li>Klicka <strong>Kopiera för Airtable</strong></li>
+    <li>Gå till Airtable, klicka på cellen under <em>Plats</em> i första tomma raden</li>
+    <li>Klistra in (Cmd+V / Ctrl+V) — kolumnerna fylls i automatiskt</li>
+  </ol>
+</div>
+
+<script>
+function convert() {
+  const raw = document.getElementById('input').value.trim();
+  if (!raw) return;
+
+  const lines = raw.split('\n').filter(l => l.trim());
+  const rows = [];
+  const warnings = [];
+
+  lines.forEach((line, i) => {
+    line = line.trim();
+    const m = line.match(/^(\d+)[.)]\s+(.+?)\s+([\d]+[.:,][\d]+)\s*$/);
+    if (!m) {
+      warnings.push('Rad ' + (i + 1) + ' kunde inte tolkas: ' + line);
+      return;
+    }
+    const plats = parseInt(m[1]);
+    const namn = m[2].trim();
+    const tid = m[3].replace(',', '.').replace(':', '.');
+    rows.push({ plats, namn, tid });
+  });
+
+  if (!rows.length) {
+    document.getElementById('status').textContent = 'Inga rader kunde tolkas — kontrollera formatet.';
+    return;
+  }
+
+  let html = '<div class="output-header">'
+    + '<span class="output-label">' + rows.length + ' deltagare</span>'
+    + '<button class="btn-secondary btn-small" onclick="copyTSV()">Kopiera för Airtable</button>'
+    + '</div>';
+
+  warnings.forEach(w => html += '<div class="warn">⚠ ' + w + '</div>');
+
+  html += '<table><thead><tr><th>Plats</th><th>Namn</th><th>Tid</th></tr></thead><tbody>';
+  rows.forEach(r => {
+    html += '<tr><td>' + r.plats + '</td><td>' + r.namn + '</td><td class="tid">' + r.tid + '</td></tr>';
+  });
+  html += '</tbody></table>';
+
+  document.getElementById('out').innerHTML = html;
+  document.getElementById('status').textContent = '';
+
+  window._tsv = 'Plats\tNamn\tTid\n' + rows.map(r => r.plats + '\t' + r.namn + '\t' + r.tid).join('\n');
+}
+
+function copyTSV() {
+  if (!window._tsv) return;
+  const st = document.getElementById('status');
+  navigator.clipboard.writeText(window._tsv).then(() => {
+    st.textContent = '✓ Kopierat! Klistra in i Airtable.';
+    st.className = 'status ok';
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = window._tsv;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    st.textContent = '✓ Kopierat! Klistra in i Airtable.';
+    st.className = 'status ok';
+  });
+}
+
+function reset() {
+  document.getElementById('input').value = '';
+  document.getElementById('out').innerHTML = '';
+  const st = document.getElementById('status');
+  st.textContent = '';
+  st.className = 'status';
+  window._tsv = null;
+}
+</script>
+</body>
+</html>

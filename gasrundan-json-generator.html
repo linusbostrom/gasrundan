@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gåsrundan — Generera JSON</title>
+<style>
+  :root {
+    --orange: #E05A1A;
+    --orange-light: #FAEDE5;
+    --bg: #F5F0E8;
+    --card: #FAF7F2;
+    --text: #1A1714;
+    --muted: #7A746B;
+    --border: rgba(90,80,60,0.15);
+    --green: #2a6b3a;
+    --green-light: #eaf3de;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    font-size: 15px; padding: 2rem 1.25rem;
+    max-width: 680px; margin: 0 auto;
+  }
+  h1 { font-size: 20px; font-weight: 700; margin-bottom: 0.2rem; }
+  .sub { font-size: 13px; color: var(--muted); margin-bottom: 1.75rem; }
+
+  .section {
+    background: var(--card); border: 0.5px solid var(--border);
+    border-radius: 10px; padding: 1.1rem 1.25rem; margin-bottom: 1rem;
+  }
+  .section-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 0.85rem;
+  }
+  .field { margin-bottom: 0.85rem; }
+  .field:last-child { margin-bottom: 0; }
+  label {
+    display: block; font-size: 12px; font-weight: 600;
+    color: var(--muted); margin-bottom: 0.3rem;
+  }
+  input[type="text"], input[type="number"], input[type="date"], textarea, select {
+    width: 100%; border: 0.5px solid var(--border);
+    border-radius: 6px; padding: 0.55rem 0.75rem;
+    font-size: 14px; font-family: inherit;
+    background: #fff; color: var(--text);
+  }
+  textarea { resize: vertical; line-height: 1.6; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .row3 { display: grid; grid-template-columns: auto 1fr 1fr; gap: 10px; align-items: end; }
+
+  .runda-selector { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.85rem; }
+  .runda-btn {
+    padding: 5px 13px; border-radius: 20px; font-size: 13px; font-weight: 600;
+    cursor: pointer; border: 0.5px solid var(--border); background: #fff; color: var(--muted);
+    font-family: inherit;
+  }
+  .runda-btn.active { background: var(--orange); color: #fff; border-color: var(--orange); }
+
+  .parse-btn {
+    margin-top: 0.5rem; padding: 0.45rem 1rem; border-radius: 20px;
+    font-size: 12px; font-weight: 700; cursor: pointer;
+    background: var(--orange-light); color: var(--orange);
+    border: 0.5px solid rgba(224,90,26,0.3); font-family: inherit;
+  }
+  .warn {
+    font-size: 12px; color: #8a5f00; background: #fff8ec;
+    border: 0.5px solid #e8c87a; border-radius: 6px;
+    padding: 5px 9px; margin-top: 6px;
+  }
+  .parsed-count { font-size: 12px; color: var(--green); margin-top: 6px; font-style: italic; }
+
+  .generate-btn {
+    width: 100%; padding: 0.75rem; border-radius: 8px;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+    background: var(--orange); color: #fff; border: none;
+    font-family: inherit; margin: 0.5rem 0;
+  }
+  .generate-btn:hover { opacity: 0.88; }
+
+  .output-section { margin-top: 1rem; }
+  .output-header {
+    display: flex; align-items: center;
+    justify-content: space-between; margin-bottom: 0.5rem;
+  }
+  .output-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .copy-btn {
+    padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;
+    cursor: pointer; background: var(--orange-light); color: var(--orange);
+    border: 0.5px solid rgba(224,90,26,0.3); font-family: inherit;
+  }
+  pre {
+    background: #1A1714; color: #F5F0E8;
+    border-radius: 8px; padding: 1rem;
+    font-size: 12px; line-height: 1.6;
+    overflow-x: auto; white-space: pre;
+  }
+  .status { font-size: 13px; color: var(--muted); margin-top: 0.5rem; min-height: 1.4em; }
+  .status.ok { color: var(--green); }
+
+  hr { border: none; border-top: 0.5px solid var(--border); margin: 1.5rem 0; }
+  .instructions { font-size: 13px; color: var(--muted); line-height: 1.7; }
+  .instructions li { margin-left: 1.25rem; margin-bottom: 0.25rem; }
+  code { font-size: 12px; background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<h1>Gåsrundan 2026</h1>
+<p class="sub">Generera JSON-block för en runda</p>
+
+<!-- RUNDA -->
+<div class="section">
+  <div class="section-title">Vilken runda?</div>
+  <div class="runda-selector" id="runda-selector"></div>
+  <div class="row2">
+    <div class="field">
+      <label>Datum</label>
+      <input type="date" id="datum">
+    </div>
+    <div class="field">
+      <label>Sträcka (m)</label>
+      <input type="number" id="stracka" placeholder="850">
+    </div>
+  </div>
+</div>
+
+<!-- ARTIKEL -->
+<div class="section">
+  <div class="section-title">Artikel</div>
+  <div class="field">
+    <label>Rubrik</label>
+    <input type="text" id="rubrik" placeholder="Sjödins och Nilssons dominerar">
+  </div>
+  <div class="field">
+    <label>Text</label>
+    <textarea id="artikel" rows="4" placeholder="Solen tittade fram lagom till startskottet…"></textarea>
+  </div>
+</div>
+
+<!-- METADATA -->
+<div class="section">
+  <div class="section-title">Metadata</div>
+  <div class="row2">
+    <div class="field">
+      <label>Väder</label>
+      <input type="text" id="vader" placeholder="Soligt, +8° SV 3 m/s">
+    </div>
+    <div class="field">
+      <label>Vind (valfritt)</label>
+      <input type="text" id="vind" placeholder="SV 3 m/s">
+    </div>
+  </div>
+  <div class="row2">
+    <div class="field">
+      <label>Tidtagare</label>
+      <input type="text" id="tidtagare" placeholder="Eriksson &amp; Berg">
+    </div>
+    <div class="field">
+      <label>Nummergivare</label>
+      <input type="text" id="nummergivare" placeholder="Andersson &amp; Larsson">
+    </div>
+  </div>
+</div>
+
+<!-- RESULTATLISTA -->
+<div class="section">
+  <div class="section-title">Resultatlista</div>
+  <div class="field">
+    <label>Klistra in listan (samma format som konverteringsverktyget)</label>
+    <textarea id="resultat-raw" rows="8" placeholder="1) Dylan Sjödin 3.40&#10;2) Linn Sjödin 3.57&#10;3) Liam Edström 4.05&#10;..."></textarea>
+    <button class="parse-btn" onclick="parseResults()">Tolka lista</button>
+    <div id="parse-status"></div>
+  </div>
+</div>
+
+<button class="generate-btn" onclick="generate()">Generera JSON</button>
+
+<div class="output-section" id="output-section" style="display:none">
+  <div class="output-header">
+    <span class="output-label">JSON-block — kopiera in i 2026.json</span>
+    <button class="copy-btn" onclick="copyJSON()">Kopiera</button>
+  </div>
+  <pre id="json-output"></pre>
+  <div id="status" class="status"></div>
+</div>
+
+<hr>
+
+<div class="instructions">
+  <span style="display:block;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;">Hur du använder JSON-blocket</span>
+  Öppna <code>data/2026.json</code> och hitta arrayen <code>"rundor": [...]</code>.
+  <ol style="margin-top:0.5rem;">
+    <li>Hitta rätt plats i arrayen (efter föregående runda)</li>
+    <li>Klistra in blocket — separera rundor med komma</li>
+    <li>Spara filen och kör <code>git push</code></li>
+  </ol>
+</div>
+
+<script>
+// Season data 2026
+const RUNDOR = [
+  { nr: 1,  dag: 'Torsdag',  datum: '2026-04-16', stracka: 850  },
+  { nr: 2,  dag: 'Fredag',   datum: '2026-04-24', stracka: 655  },
+  { nr: 3,  dag: 'Onsdag',   datum: '2026-04-29', stracka: 951  },
+  { nr: 4,  dag: 'Fredag',   datum: '2026-05-08', stracka: 530  },
+  { nr: 5,  dag: 'Onsdag',   datum: '2026-05-13', stracka: 1050 },
+  { nr: 6,  dag: 'Fredag',   datum: '2026-05-22', stracka: 1150 },
+  { nr: 7,  dag: 'Fredag',   datum: '2026-05-29', stracka: 950  },
+  { nr: 8,  dag: 'Fredag',   datum: '2026-06-05', stracka: 530  },
+  { nr: 9,  dag: 'Fredag',   datum: '2026-06-12', stracka: 1000 },
+  { nr: 10, dag: 'Onsdag',   datum: '2026-06-17', stracka: 1350 },
+];
+
+let parsedResults = [];
+let activeRunda = null;
+
+// Build runda selector
+const sel = document.getElementById('runda-selector');
+RUNDOR.forEach(r => {
+  const btn = document.createElement('button');
+  btn.className = 'runda-btn';
+  btn.textContent = r.nr;
+  btn.onclick = () => selectRunda(r.nr);
+  sel.appendChild(btn);
+});
+
+function selectRunda(nr) {
+  activeRunda = RUNDOR.find(r => r.nr === nr);
+  document.querySelectorAll('.runda-btn').forEach((b, i) => {
+    b.classList.toggle('active', RUNDOR[i].nr === nr);
+  });
+  document.getElementById('datum').value = activeRunda.datum;
+  document.getElementById('stracka').value = activeRunda.stracka;
+}
+
+function parseResults() {
+  const raw = document.getElementById('resultat-raw').value.trim();
+  const lines = raw.split('\n').filter(l => l.trim());
+  parsedResults = [];
+  const warnings = [];
+  let lastPlats = null;
+
+  lines.forEach((line, i) => {
+    line = line.trim();
+
+    // Numbered line: "19) Sixten Almqvist 3.23"
+    const mNr = line.match(/^(\d+)[.)]\s+(.+?)\s+([\d]+[.:,][\d]+)\s*$/);
+    if (mNr) {
+      lastPlats = parseInt(mNr[1]);
+      parsedResults.push({
+        plats: lastPlats,
+        namn: mNr[2].trim(),
+        tid: mNr[3].replace(',', '.').replace(':', '.')
+      });
+      return;
+    }
+
+    // Tied line with "och": "och Albin Sjögren Fjellner 3.23"
+    const mOch = line.match(/^och\s+(.+?)\s+([\d]+[.:,][\d]+)\s*$/i);
+    if (mOch && lastPlats !== null) {
+      parsedResults.push({
+        plats: lastPlats,
+        namn: mOch[1].trim(),
+        tid: mOch[2].replace(',', '.').replace(':', '.')
+      });
+      return;
+    }
+
+    // Tied line without number (just name + time): "Albin Sjögren Fjellner 3.23"
+    const mTied = line.match(/^([^0-9].+?)\s+([\d]+[.:,][\d]+)\s*$/);
+    if (mTied && lastPlats !== null) {
+      parsedResults.push({
+        plats: lastPlats,
+        namn: mTied[1].trim(),
+        tid: mTied[2].replace(',', '.').replace(':', '.')
+      });
+      return;
+    }
+
+    warnings.push('Rad ' + (i+1) + ' kunde inte tolkas: ' + line);
+  });
+
+  const st = document.getElementById('parse-status');
+  let html = '';
+  warnings.forEach(w => html += '<div class="warn">⚠ ' + w + '</div>');
+  if (parsedResults.length) {
+    html += '<div class="parsed-count">✓ ' + parsedResults.length + ' deltagare tolkade.</div>';
+  }
+  st.innerHTML = html;
+}
+
+function generate() {
+  // Parse results if not done
+  if (!parsedResults.length) parseResults();
+
+  const nr = activeRunda ? activeRunda.nr : (parseInt(document.getElementById('stracka').value) || null);
+  const datum = document.getElementById('datum').value;
+  const stracka = parseInt(document.getElementById('stracka').value) || null;
+  const rubrik = document.getElementById('rubrik').value.trim();
+  const artikel = document.getElementById('artikel').value.trim();
+  const vader = document.getElementById('vader').value.trim();
+  const vind = document.getElementById('vind').value.trim();
+  const tidtagare = document.getElementById('tidtagare').value.trim();
+  const nummergivare = document.getElementById('nummergivare').value.trim();
+
+  const obj = {};
+  if (activeRunda) obj.nr = activeRunda.nr;
+  obj.datum = datum || '';
+  if (stracka) obj.stracka_meter = stracka;
+  if (rubrik) obj.rubrik = rubrik;
+  if (artikel) obj.artikel = artikel;
+  if (vader) obj.vader = vader;
+  if (vind) obj.vind = vind;
+  if (tidtagare) obj.tidtagare = tidtagare;
+  if (nummergivare) obj.nummergivare = nummergivare;
+  obj.resultat = parsedResults;
+
+  const json = JSON.stringify(obj, null, 2);
+  document.getElementById('json-output').textContent = json;
+  document.getElementById('output-section').style.display = 'block';
+  document.getElementById('status').textContent = '';
+  document.getElementById('output-section').scrollIntoView({ behavior: 'smooth' });
+  window._json = json;
+}
+
+function copyJSON() {
+  if (!window._json) return;
+  const st = document.getElementById('status');
+  navigator.clipboard.writeText(window._json).then(() => {
+    st.textContent = '✓ Kopierat!';
+    st.className = 'status ok';
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = window._json;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    st.textContent = '✓ Kopierat!';
+    st.className = 'status ok';
+  });
+}
+</script>
+</body>
+</html>

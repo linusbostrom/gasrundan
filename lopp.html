@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gåsrundan 2026</title>
+  <meta name="description" content="Resultat från Gåsrundan 2026.">
+  <link rel="stylesheet" href="css/gasrundan.css">
+</head>
+<body>
+
+<header>
+  <nav class="topbar">
+    <a class="topbar-home" href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      Alla rundor
+    </a>
+    <a class="topbar-logo" href="index.html">Gåsrundan</a>
+  </nav>
+  <div class="jubileum-strip">Jubileum &nbsp;·&nbsp; 50 år &nbsp;·&nbsp; 2026</div>
+</header>
+
+<main class="main" id="main-content">
+  <p class="loading">Laddar…</p>
+</main>
+
+<footer class="site-footer">
+  © 2026 Gåsrundan &nbsp;·&nbsp; Skapad av Johan Piribauer 1977 &nbsp;·&nbsp; Arrangeras av Lennart Jonsson och vänner
+</footer>
+
+<script>
+function formatDate(dateStr, dag) {
+  const d = new Date(dateStr + 'T12:00:00');
+  const months = ['januari','februari','mars','april','maj','juni','juli','augusti','september','oktober','november','december'];
+  return dag + ' ' + d.getDate() + ' ' + months[d.getMonth()] + ' 2026';
+}
+
+function formatPlats(plats) {
+  return String(plats).padStart(2, '0') + ')';
+}
+
+async function init() {
+  const params = new URLSearchParams(window.location.search);
+  const nr = parseInt(params.get('runda'));
+  const main = document.getElementById('main-content');
+
+  if (!nr || isNaN(nr)) {
+    main.innerHTML = '<p class="error-msg">Ingen runda angiven. <a href="index.html">Tillbaka</a></p>';
+    return;
+  }
+
+  let data;
+  try {
+    const res = await fetch('data/2026.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    data = await res.json();
+  } catch (e) {
+    main.innerHTML = '<p class="error-msg">Kunde inte ladda data.</p>';
+    return;
+  }
+
+  const runda = data.rundor.find(r => r.nr === nr);
+  if (!runda) {
+    main.innerHTML = '<p class="error-msg">Runda ' + nr + ' hittades inte. <a href="index.html">Tillbaka</a></p>';
+    return;
+  }
+
+  // Update page title
+  document.title = 'Runda ' + runda.nr + ' – Gåsrundan 2026';
+
+  const hasResults = runda.resultat && runda.resultat.length > 0;
+
+  // Article section
+  const artikelHTML = (runda.rubrik || runda.artikel) ? `
+    <div class="res-header">
+      <div class="res-eyebrow">Runda ${runda.nr} &nbsp;·&nbsp; ${formatDate(runda.datum, runda.dag)}</div>
+      ${runda.rubrik ? `<h1 class="res-title">${runda.rubrik}</h1>` : ''}
+      ${runda.artikel ? `<p class="res-article">${runda.artikel}</p>` : ''}
+    </div>` : `
+    <div class="res-header">
+      <div class="res-eyebrow">Runda ${runda.nr} &nbsp;·&nbsp; ${formatDate(runda.datum, runda.dag)}</div>
+      <h1 class="res-title">Runda ${runda.nr}</h1>
+    </div>`;
+
+  // Meta boxes — only show if we have data
+  const hasVader = runda.vader;
+  const hasPersInfo = runda.tidtagare || runda.nummergivare;
+
+  const metaHTML = (hasVader || hasPersInfo) ? `
+    <div class="meta-row">
+      ${hasVader ? `
+      <div class="meta-box">
+        <div class="meta-item">
+          <div class="meta-label">Väder</div>
+          <div class="meta-value">${runda.vader}</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Bana</div>
+          <div class="meta-value">${runda.stracka_meter} m</div>
+        </div>
+      </div>` : `
+      <div class="meta-box">
+        <div class="meta-item">
+          <div class="meta-label">Bana</div>
+          <div class="meta-value">${runda.stracka_meter} m</div>
+        </div>
+      </div>`}
+      ${hasPersInfo ? `
+      <div class="meta-box">
+        ${runda.tidtagare ? `
+        <div class="meta-item">
+          <div class="meta-label">Tidtagare</div>
+          <div class="meta-value">${runda.tidtagare}</div>
+        </div>` : ''}
+        ${runda.nummergivare ? `
+        <div class="meta-item">
+          <div class="meta-label">Nummergivare</div>
+          <div class="meta-value">${runda.nummergivare}</div>
+        </div>` : ''}
+      </div>` : ''}
+    </div>` : '';
+
+  // Results
+  const resultsHTML = hasResults ? `
+    <div class="results-title">Resultatlista</div>
+    ${runda.resultat.map(p => `
+      <div class="result-row">
+        <span class="res-nr">${formatPlats(p.plats)}</span>
+        <span class="res-name">${p.namn}</span>
+        <span class="res-tid">${p.tid}</span>
+      </div>`).join('')}
+    ` : `
+    <p class="standing-note">Resultaten är inte publicerade ännu — kom tillbaka senare!</p>`;
+
+  main.innerHTML = artikelHTML + metaHTML + `<div>${resultsHTML}</div>`;
+}
+
+init();
+</script>
+</body>
+</html>

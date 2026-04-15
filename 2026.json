@@ -1,0 +1,129 @@
+{
+  "ar": 2026,
+  "jubileum": 50,
+  "plats": "Fam. Boström-Jonssons garage, Tallgatan 16 (kvarteret Gåsen)",
+  "start_tid": "17:15",
+  "anmalan_tid": "16:45",
+  "rundor": [
+    {
+      "nr": 1,
+      "dag": "Torsdag",
+      "datum": "2026-04-16",
+      "stracka_meter": 850,
+      "rubrik": "",
+      "artikel": "",
+      "vader": "",
+      "tidtagare": "",
+      "nummergivare": "",
+      "resultat": []
+    },
+    {
+      "nr": 2,
+      "dag": "Fredag",
+      "datum": "2026-04-24",
+      "stracka_meter": 655,
+      "rubrik": "",
+      "artikel": "",
+      "vader": "",
+      "tidtagare": "",
+      "nummergivare": "",
+      "resultat": []
+    },
+    {
+      "nr": 3,
+      "dag": "Onsdag",
+      "datum": "2026-04-29",
+      "stracka_meter": 951,
+      "rubrik": "",
+      "artikel": "",
+      "vader": "",
+      "tidtagare": "",
+      "nummergivare": "",
+      "resultat": []
+    },
+    {
+      "nr": 4,
+      "dag": "Fredag",
+      "datum": "2026-05-08",
+      "stracka_meter": 530,
+      "rubrik": "",
+      "artikel": "",
+      "vader": "",
+      "tidtagare": "",
+      "nummergivare": "",
+      "resultat": []
+    },
+    {
+      "nr": 5,
+      "dag": "Onsdag",
+      "datum": "2026-05-13",
+      "stracka_meter": 1050,
+      "rubrik": "",
+      "artikel": "",
+      "vader": "",
+      "tidtagare": "",
+      "nummergivare": "",
+      "resultat": []
+    },
+    {
+      "nr": 6,
+      "dag": "Fredag",
+      "datum": "2026-05-22",
+      "stracka_meter": 1150,
+      "rubrik": "",
+      "artikel": "",
+      "vader": "",
+      "tidtagare": "",
+      "nummergivare": "",
+      "resultat": []
+    },
+    {
+      "nr": 7,
+      "dag": "Fredag",
+      "datum": "2026-05-29",
+      "stracka_meter": 950,
+      "rubrik": "",
+      "artikel": "",
+      "vader": "",
+      "tidtagare": "",
+      "nummergivare": "",
+      "resultat": []
+    },
+    {
+      "nr": 8,
+      "dag": "Fredag",
+      "datum": "2026-06-05",
+      "stracka_meter": 530,
+      "rubrik": "",
+      "artikel": "",
+      "vader": "",
+      "tidtagare": "",
+      "nummergivare": "",
+      "resultat": []
+    },
+    {
+      "nr": 9,
+      "dag": "Fredag",
+      "datum": "2026-06-12",
+      "stracka_meter": 1000,
+      "rubrik": "",
+      "artikel": "",
+      "vader": "",
+      "tidtagare": "",
+      "nummergivare": "",
+      "resultat": []
+    },
+    {
+      "nr": 10,
+      "dag": "Onsdag",
+      "datum": "2026-06-17",
+      "stracka_meter": 1350,
+      "rubrik": "",
+      "artikel": "",
+      "vader": "",
+      "tidtagare": "",
+      "nummergivare": "",
+      "resultat": []
+    }
+  ]
+}

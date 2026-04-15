@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gåsrundan 2026</title>
+  <meta name="description" content="Gåsrundan 2026 – 50-årsjubileum! En serie korta löptävlingar för alla åldrar och utan kostnad.">
+  <link rel="stylesheet" href="css/gasrundan.css">
+</head>
+<body>
+
+<header>
+  <nav class="topbar">
+    <span class="topbar-logo">Gåsrundan</span>
+  </nav>
+  <div class="jubileum-strip">Jubileum &nbsp;·&nbsp; 50 år &nbsp;·&nbsp; 2026</div>
+</header>
+
+<div id="hero-container"></div>
+
+<div class="info-strip">
+  <span>📍 Fam. Boström-Jonssons garage, Tallgatan 16</span>
+  <span>🕔 Start alltid kl. 17:15</span>
+</div>
+
+<main class="main">
+  <h2 class="section-head">Program &amp; resultat 2026</h2>
+  <div id="program-list" class="runda-list">
+    <p class="loading">Laddar…</p>
+  </div>
+
+  <h2 class="section-head" style="display:flex;align-items:baseline;justify-content:space-between;">
+    Totalställning
+    <a href="pongligan.html" style="font-size:13px;font-weight:700;color:var(--gc-orange);text-decoration:none;font-family:var(--gc-nunito);">Fullständig liga →</a>
+  </h2>
+  <div id="standing-container">
+    <p class="loading">Laddar…</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  © 2026 Gåsrundan &nbsp;·&nbsp; Skapad av Johan Piribauer 1977 &nbsp;·&nbsp; Arrangeras av Lennart Jonsson och vänner
+</footer>
+
+<script>
+
+function formatDate(dateStr, dag) {
+  const d = new Date(dateStr + 'T12:00:00');
+  const months = ['januari','februari','mars','april','maj','juni','juli','augusti','september','oktober','november','december'];
+  return dag + ' ' + d.getDate() + ' ' + months[d.getMonth()];
+}
+
+function roundState(runda, today) {
+  const hasResults = runda.resultat && runda.resultat.length > 0;
+  const roundDate = new Date(runda.datum + 'T23:59:59');
+  if (hasResults) return 'done';
+  if (roundDate >= today) return 'next'; // first future round without results
+  return 'upcoming';
+}
+
+async function init() {
+  let data;
+  try {
+    const res = await fetch('data/2026.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    data = await res.json();
+  } catch (e) {
+    document.getElementById('program-list').innerHTML = '<p class="error-msg">Kunde inte ladda data.</p>';
+    return;
+  }
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // Find states — only first round without results & in future is "next"
+  let nextAssigned = false;
+  const states = data.rundor.map(r => {
+    const hasResults = r.resultat && r.resultat.length > 0;
+    const roundDate = new Date(r.datum + 'T00:00:00');
+    if (hasResults) return 'done';
+    if (!nextAssigned && roundDate >= today) {
+      nextAssigned = true;
+      return 'next';
+    }
+    return 'upcoming';
+  });
+
+  // Hero
+  const nextIndex = states.indexOf('next');
+  const heroEl = document.getElementById('hero-container');
+  if (nextIndex >= 0) {
+    const r = data.rundor[nextIndex];
+    heroEl.innerHTML = `
+      <div class="hero">
+        <div class="hero-eyebrow">Nästa runda</div>
+        <div class="hero-title">Runda ${r.nr} — ${formatDate(r.datum, r.dag)}</div>
+        <div class="hero-sub">${r.stracka_meter} meter &nbsp;·&nbsp; Kl. ${data.start_tid} &nbsp;·&nbsp; Tallgatan 16</div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Anmälan från kl. ${data.anmalan_tid}
+          </div>
+          <div class="hero-meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            Alla åldrar, gratis
+          </div>
+        </div>
+      </div>`;
+  } else {
+    // Season over
+    heroEl.innerHTML = `
+      <div class="hero-done">
+        <p>Gåsrundan 2026 är avslutad — tack alla deltagare! <strong>Vi ses 2027.</strong></p>
+      </div>`;
+  }
+
+  // Program list
+  const listEl = document.getElementById('program-list');
+  listEl.innerHTML = data.rundor.map((r, i) => {
+    const state = states[i];
+    const dateLabel = formatDate(r.datum, r.dag);
+    if (state === 'done') {
+      return `<a class="runda-row done" href="lopp.html?runda=${r.nr}">
+        <div class="runda-nr">${r.nr}</div>
+        <div class="runda-info">
+          <div class="runda-dag">${dateLabel}</div>
+          <div class="runda-dist">${r.stracka_meter} m</div>
+        </div>
+        <span class="result-pill">Resultat →</span>
+      </a>`;
+    }
+    if (state === 'next') {
+      return `<div class="runda-row next">
+        <div class="runda-nr">${r.nr}</div>
+        <div class="runda-info">
+          <div class="runda-dag">${dateLabel}</div>
+          <div class="runda-dist">${r.stracka_meter} m</div>
+        </div>
+        <span class="next-badge">Nästa</span>
+      </div>`;
+    }
+    return `<div class="runda-row upcoming">
+      <div class="runda-nr">${r.nr}</div>
+      <div class="runda-info">
+        <div class="runda-dag">${dateLabel}</div>
+        <div class="runda-dist">${r.stracka_meter} m</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Standings
+  const standingEl = document.getElementById('standing-container');
+  const stallning = data.stallning || [];
+
+  if (!stallning.length) {
+    standingEl.innerHTML = '<p class="standing-note">Inga rundor avklarade ännu — säsongen startar ' + formatDate(data.rundor[0].datum, data.rundor[0].dag) + '.</p>';
+    return;
+  }
+
+  const top = stallning.slice(0, 5);
+  standingEl.innerHTML = '<table class="standing-table">'
+    + top.map(p =>
+        `<tr><td>${p.plats}</td><td>${p.namn}</td><td>${Number.isInteger(p.poang) ? p.poang : p.poang.toFixed(1)} p</td></tr>`
+      ).join('')
+    + '</table>';
+}
+
+init();
+</script>
+</body>
+</html>
