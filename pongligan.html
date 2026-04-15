@@ -7,70 +7,17 @@
   <meta name="description" content="Poängliga Gåsrundan 2026.">
   <link rel="stylesheet" href="css/gasrundan.css">
   <style>
-    .points-key {
-      display: flex; flex-wrap: wrap; gap: 6px;
-      margin: 0.25rem 0 1.5rem;
-    }
-    .points-pill {
-      font-size: 12px; font-weight: 600;
-      background: var(--gc-card);
-      border: 0.5px solid var(--gc-border);
-      border-radius: 20px; padding: 3px 10px;
-      color: var(--gc-muted);
-    }
+    .points-key { display: flex; flex-wrap: wrap; gap: 6px; margin: 0.25rem 0 1.5rem; }
+    .points-pill { font-size: 12px; font-weight: 600; background: var(--gc-card); border: 0.5px solid var(--gc-border); border-radius: 20px; padding: 3px 10px; color: var(--gc-muted); }
     .points-pill span { color: var(--gc-text); font-weight: 700; }
-
     .standing-full { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
-    .standing-full th {
-      text-align: left;
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--gc-muted);
-      padding: 0.4rem 0.5rem 0.4rem 0;
-      border-bottom: 0.5px solid var(--gc-border);
-    }
+    .standing-full th { text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gc-muted); padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 0.5px solid var(--gc-border); }
     .standing-full th.right { text-align: right; }
-    .standing-full td {
-      padding: 0.65rem 0.5rem 0.65rem 0;
-      border-bottom: 0.5px solid var(--gc-border);
-      font-size: 14px; vertical-align: middle;
-    }
-    .standing-full td:first-child {
-      color: var(--gc-muted); font-size: 12px;
-      font-weight: 700; width: 24px;
-    }
-    .standing-full td.total {
-      text-align: right;
-      font-weight: 700;
-      font-family: var(--gc-andika);
-      font-size: 17px;
-      color: var(--gc-orange);
-      white-space: nowrap;
-    }
-
-    .round-dots { display: flex; gap: 3px; flex-wrap: wrap; }
-    .round-dot {
-      width: 20px; height: 20px; border-radius: 50%;
-      font-size: 10px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      background: var(--gc-surface); color: var(--gc-muted);
-    }
-    .round-dot.scored {
-      background: var(--gc-orange-light); color: var(--gc-orange);
-    }
-    .round-dot.top {
-      background: var(--gc-orange); color: #fff;
-    }
-
-    .updated-note {
-      font-size: 12px; color: var(--gc-muted);
-      font-style: italic; margin-bottom: 1.5rem;
-    }
-    .standing-note {
-      font-size: 13px; color: var(--gc-muted);
-      font-style: italic; padding-bottom: 2rem;
-    }
+    .standing-full td { padding: 0.65rem 0.5rem 0.65rem 0; border-bottom: 0.5px solid var(--gc-border); font-size: 15px; vertical-align: middle; }
+    .standing-full td:first-child { color: var(--gc-muted); font-size: 13px; font-weight: 700; width: 24px; }
+    .standing-full td.total { text-align: right; font-weight: 700; font-family: var(--gc-andika); font-size: 17px; color: var(--gc-orange); white-space: nowrap; }
+    .updated-note { font-size: 13px; color: var(--gc-muted); font-style: italic; margin-bottom: 1.5rem; }
+    .standing-note { font-size: 13px; color: var(--gc-muted); font-style: italic; padding-bottom: 2rem; }
   </style>
 </head>
 <body>
@@ -95,13 +42,6 @@
 </footer>
 
 <script>
-const POINTS = [12, 9, 7, 4, 3, 2, 1];
-
-function pts(plats) {
-  if (plats >= 1 && plats <= 7) return POINTS[plats - 1];
-  return 0.5;
-}
-
 function fmtPts(p) {
   return Number.isInteger(p) ? p + ' p' : p.toFixed(1) + ' p';
 }
@@ -119,17 +59,31 @@ async function init() {
     return;
   }
 
+  // Sub-nav
+  const pills = data.rundor.map(r => {
+    const haRes = r.resultat && r.resultat.length > 0;
+    const cls = ['sub-nav-pill', !haRes ? 'no-results' : ''].filter(Boolean).join(' ');
+    return `<a class="${cls}" href="lopp.html?runda=${r.nr}">Runda ${r.nr}</a>`;
+  }).join('') + `<a class="sub-nav-pill active" href="pongligan.html">Poängliga</a>`;
+
+  const subNavHTML = `
+    <nav class="sub-nav">
+      <span class="sub-nav-arrow disabled">&#8249;</span>
+      <div class="sub-nav-pills">${pills}</div>
+      <span class="sub-nav-arrow disabled">&#8250;</span>
+    </nav>`;
+
   const stallning = data.stallning || [];
   const doneRundor = data.rundor.filter(r => r.resultat && r.resultat.length > 0);
 
   if (!stallning.length || !doneRundor.length) {
-    main.innerHTML = `
-      <h1 class="section-head" style="padding-top:1.25rem">Poängliga</h1>
+    main.innerHTML = subNavHTML + `
+      <h1 class="section-head" style="padding-top:1.25rem">Poängliga 2026</h1>
       <p class="standing-note">Inga rundor avklarade ännu — poängligan publiceras efter runda 1.</p>`;
     return;
   }
 
-  const rows = stallning.map((p, i) =>
+  const rows = stallning.map(p =>
     `<tr>
       <td>${p.plats}</td>
       <td>${p.namn}</td>
@@ -137,10 +91,9 @@ async function init() {
     </tr>`
   ).join('');
 
-  main.innerHTML = `
-    <h1 class="section-head" style="padding-top:1.25rem">Poängliga</h1>
+  main.innerHTML = subNavHTML + `
+    <h1 class="section-head" style="padding-top:1.25rem">Poängliga 2026</h1>
     <p class="updated-note">Efter ${doneRundor.length} av 10 rundor.</p>
-
     <div class="points-key">
       <div class="points-pill">1:a <span>12 p</span></div>
       <div class="points-pill">2:a <span>9 p</span></div>
@@ -151,15 +104,8 @@ async function init() {
       <div class="points-pill">7:a <span>1 p</span></div>
       <div class="points-pill">Övriga <span>½ p</span></div>
     </div>
-
     <table class="standing-full">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Namn</th>
-          <th class="right">Totalt</th>
-        </tr>
-      </thead>
+      <thead><tr><th></th><th>Namn</th><th class="right">Totalt</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>`;
 }
