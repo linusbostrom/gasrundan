@@ -77,7 +77,7 @@ async function init() {
     const haRes = r.resultat && r.resultat.length > 0;
     const cls = ['sub-nav-pill', isActive ? 'active' : '', (!haRes && !isActive) ? 'no-results' : ''].filter(Boolean).join(' ');
     return `<a class="${cls}" href="lopp.html?runda=${r.nr}">Runda ${r.nr}</a>`;
-  }).join('');
+  }).join('') + `<a class="sub-nav-pill" href="pongligan.html">Poängliga</a>`;
 
   const prevLink = prevRunda
     ? `<a class="sub-nav-arrow" href="lopp.html?runda=${prevRunda.nr}">&#8249;</a>`
@@ -126,7 +126,7 @@ async function init() {
 
   // ── Resultatlista ──
   const resultsHTML = hasResults
-    ? `<div class="results-title">Resultatlista</div>
+    ? `<div class="results-title">Resultat Gåsrunda ${runda.nr}, 2026</div>
        ${runda.resultat.map(p => `
          <div class="result-row">
            <span class="res-nr">${formatPlats(p.plats)}</span>
