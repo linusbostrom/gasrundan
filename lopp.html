@@ -102,7 +102,7 @@ async function init() {
 
   // ── Artikel ──
   const artikelHTML = runda.artikel
-    ? `<div class="res-article-area"><p class="res-article">${runda.artikel}</p></div>`
+    ? `<div class="res-article-area">${runda.artikel.split('\n').filter(s => s.trim()).map(s => `<p class="res-article">${s}</p>`).join('')}</div>`
     : `<div class="res-article-area"></div>`;
 
   // ── Meta ──

@@ -168,7 +168,8 @@ body {
 .res-desktop-wrap { display: block; }
 
 .res-article-area { padding: 0.75rem 0 0.25rem; }
-.res-article { font-size: 16px; line-height: 1.75; }
+.res-article { font-size: 16px; line-height: 1.75; margin-bottom: 0.85rem; }
+.res-article:last-child { margin-bottom: 0; }
 
 /* Meta: full-width stacked on mobile */
 .res-meta-col { margin: 1rem 0 1.25rem; }
