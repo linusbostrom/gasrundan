@@ -8,6 +8,9 @@
   --gc-orange-light: #FAEDE5;
   --gc-text:         #1A1714;
   --gc-muted:        #7A746B;
+  --gc-dark:         #3A2A1A;   /* mörkt band (tagline-strip) */
+  --gc-dark-text:    #C8B49A;   /* ljus text på mörkt band */
+  --gc-brown:        #5A4430;   /* brun text, t.ex. ingress */
   --gc-border:       rgba(90,80,60,0.15);
   --gc-andika:       'Andika', Georgia, serif;
   --gc-nunito:       'Nunito', system-ui, sans-serif;
@@ -91,7 +94,8 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1.5px solid var(--color-orange);
+  border: 1.5px solid var(--gc-orange);
+  color: var(--gc-orange);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,19 +103,20 @@ body {
 }
 .jubileum-emblem-50 {
   font-size: 9px;
-  color: var(--color-orange);
+  color: var(--gc-orange);
   font-weight: 700;
   letter-spacing: .05em;
   line-height: 1;
 }
 .jubileum-emblem-ar {
   font-size: 7px;
-  color: var(--color-text-muted);
+  color: var(--gc-brown);
   letter-spacing: .03em;
 }
 
 .tagline-strip {
-  background: var(--color-dark-brown);
+  background: var(--gc-dark);
+  color: var(--gc-dark-text);
   text-align: center;
   padding: .75rem 2rem;
   font-size: .82rem;
@@ -128,7 +133,7 @@ body {
 }
 .ingress p {
   font-size: 1.05rem;
-  color: var(--color-brown);
+  color: var(--gc-brown);
   letter-spacing: .03em;
   font-style: italic;
 }
