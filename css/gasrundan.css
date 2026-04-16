@@ -35,7 +35,7 @@ body {
   background: var(--gc-bg);
   border-bottom: 0.5px solid var(--gc-border);
 }
-.topbar-logo {
+.topbar .logo {
   font-family: var(--gc-andika);
   font-weight: 700; font-size: 17px;
   letter-spacing: 0.22em; text-transform: uppercase;
