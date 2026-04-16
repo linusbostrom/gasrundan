@@ -149,7 +149,7 @@ body {
 .runda-row.done:hover .runda-nr { color: var(--gc-orange); }
 .runda-nr {
   font-family: var(--gc-andika); font-weight: 700; font-size: 16px;
-  width: 26px; flex-shrink: 0; color: var(--gc-muted);
+  width: 4.5rem; flex-shrink: 0; color: var(--gc-muted);
   transition: color 0.15s;
 }
 .runda-row.done .runda-nr  { color: var(--gc-text); }
