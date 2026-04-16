@@ -10,7 +10,7 @@
 <body>
 
 <header>
-   <div class="topbar">
+  <div class="topbar">
     <span class="logo">Gåsrundan</span>
     <div class="jubileum-emblem">
       <span class="jubileum-emblem-50">50</span>
@@ -18,16 +18,15 @@
     </div>
   </div>
   <div class="tagline-strip">
-  Löptävlingar i Arvidsjaur för hela familjen
+    Löptävlingar i Arvidsjaur för hela familjen
   </div>
 </header>
 
 <div id="hero-container"></div>
+
 <div class="ingress">
   <p>Rörelseglädje, samvaro och tradition sedan 1977</p>
 </div>
-
-
 
 <main class="main">
   <h2 class="section-head">Program &amp; resultat 2026</h2>
@@ -54,14 +53,6 @@ function formatDate(dateStr, dag) {
   const d = new Date(dateStr + 'T12:00:00');
   const months = ['januari','februari','mars','april','maj','juni','juli','augusti','september','oktober','november','december'];
   return dag + ' ' + d.getDate() + ' ' + months[d.getMonth()];
-}
-
-function roundState(runda, today) {
-  const hasResults = runda.resultat && runda.resultat.length > 0;
-  const roundDate = new Date(runda.datum + 'T23:59:59');
-  if (hasResults) return 'done';
-  if (roundDate >= today) return 'next'; // first future round without results
-  return 'upcoming';
 }
 
 async function init() {
@@ -94,8 +85,6 @@ async function init() {
   // Hero
   const nextIndex = states.indexOf('next');
   const heroEl = document.getElementById('hero-container');
-  const taglineEl = document.getElementById('tagline-strip');
-  const taglineHTML = `<div class="info-strip" style="font-style:italic;">Rörelseglädje &nbsp;·&nbsp; Samvaro &nbsp;·&nbsp; Tradition</div>`;
   if (nextIndex >= 0) {
     const r = data.rundor[nextIndex];
     heroEl.innerHTML = `
@@ -108,13 +97,11 @@ async function init() {
           <div class="hero-meta-item">Start kl. ${data.start_tid} &nbsp;·&nbsp; Anmälan från ${data.anmalan_tid}</div>
         </div>
       </div>`;
-    taglineEl.innerHTML = taglineHTML;
   } else {
     heroEl.innerHTML = `
       <div class="hero-done">
         <p>Gåsrundan 2026 är avslutad — tack alla deltagare! <strong>Vi ses 2027.</strong></p>
       </div>`;
-    taglineEl.innerHTML = taglineHTML;
   }
 
   // Program list
