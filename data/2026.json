@@ -9,15 +9,390 @@
   {
   "nr": 1,
   "datum": "2026-04-16",
-  "dag": "Torsdag",
   "stracka_meter": 850,
-  "rubrik": "",
-  "artikel": "",
-  "vader": "",
-  "vind": "",
-  "tidtagare": "",
-  "nummergivare": "",
-  "resultat": []
+  "rubrik": "Sjödinarna i topp",
+  "artikel": "Har vi inte haft den rubriken förut? Men nu var det dags igen, på jubileumssäsongens första runda. Dylan Sjödin vann med halvminuten (!) före Liam Edström. Bästa tjej och totaltrea var Linn Sjödin före Herman Jonsson. Elvira Enberg Lundgren tangerade sin bästaplacering och kom femma.\nDylan klippte sin fjolårstid med 18 sekunder och var sju sekunder över killarnas banrekord (2.04 John Lagerskog 1999), men bara två sekunder från att komma in på listan över de fem bästa tiderna på runda 1.\nLinn var 29 sekunder över tjejrekordet (2.21 Karin Nilsson 2002).\nRundans klippare, dvs de som klippte sina fjolårstider, var förutom nämnde Dylan, Elvira Enberg Lundgren (10 sekunder), Wilma Lövgren (11), Flora Boström (15), August Wernersson Grundström (18), Ejvind Boström (24), Vega Alnqvist (28), Ebbot Juliusson (37), Signe Ögren (41) och William Edström (51).",
+  "vader": "Sol, +11° (Snödjup: 45 cm)",
+  "vind": "Svag vind",
+  "tidtagare": "Christine och Lennart",
+  "nummergivare": "Ki och Harry",
+  "resultat": [
+    {
+      "plats": 1,
+      "namn": "Dylan Sjödin",
+      "tid": "2.11"
+    },
+    {
+      "plats": 2,
+      "namn": "Liam Edström",
+      "tid": "2.41"
+    },
+    {
+      "plats": 3,
+      "namn": "Linn Sjödin",
+      "tid": "2.50"
+    },
+    {
+      "plats": 4,
+      "namn": "Herman Jonsson",
+      "tid": "3.00"
+    },
+    {
+      "plats": 5,
+      "namn": "Elvira Enberg Lundgren",
+      "tid": "3.00"
+    },
+    {
+      "plats": 6,
+      "namn": "Monica Sjödin",
+      "tid": "3.07"
+    },
+    {
+      "plats": 7,
+      "namn": "William Edström",
+      "tid": "3.14"
+    },
+    {
+      "plats": 8,
+      "namn": "Wilma Lövgren",
+      "tid": "3.23"
+    },
+    {
+      "plats": 9,
+      "namn": "Jackie Ekerfalk Lövgren",
+      "tid": "3.35"
+    },
+    {
+      "plats": 9,
+      "namn": "Elly Andersson",
+      "tid": "3.35"
+    },
+    {
+      "plats": 11,
+      "namn": "Ebbe Seppä",
+      "tid": "3.38"
+    },
+    {
+      "plats": 12,
+      "namn": "Emma Lundgren",
+      "tid": "3.42"
+    },
+    {
+      "plats": 13,
+      "namn": "Ejvind Boström",
+      "tid": "3.54"
+    },
+    {
+      "plats": 14,
+      "namn": "Tomas Edström",
+      "tid": "3.55"
+    },
+    {
+      "plats": 15,
+      "namn": "Hildur Jansson",
+      "tid": "4.00"
+    },
+    {
+      "plats": 16,
+      "namn": "Ella Edström",
+      "tid": "4.01"
+    },
+    {
+      "plats": 17,
+      "namn": "Lava Juliusson",
+      "tid": "4.03"
+    },
+    {
+      "plats": 18,
+      "namn": "Adela Intidam Norén",
+      "tid": "4.04"
+    },
+    {
+      "plats": 19,
+      "namn": "Alvin Sjögren Fjellner",
+      "tid": "4.07"
+    },
+    {
+      "plats": 19,
+      "namn": "Gustaf Andersson",
+      "tid": "4.07"
+    },
+    {
+      "plats": 21,
+      "namn": "Saga Andersson",
+      "tid": "4.08"
+    },
+    {
+      "plats": 22,
+      "namn": "Manfred Piribauer",
+      "tid": "4.11"
+    },
+    {
+      "plats": 23,
+      "namn": "Evelina Bergström",
+      "tid": "4.12"
+    },
+    {
+      "plats": 24,
+      "namn": "Fanny Ekerfalk Lövgren",
+      "tid": "4.13"
+    },
+    {
+      "plats": 25,
+      "namn": "Mille Åberg",
+      "tid": "4.16"
+    },
+    {
+      "plats": 26,
+      "namn": "Laura Grahn",
+      "tid": "4.17"
+    },
+    {
+      "plats": 27,
+      "namn": "Cecilia Ekerfalk Lövgren",
+      "tid": "4.21"
+    },
+    {
+      "plats": 28,
+      "namn": "Ebbot Juliusson",
+      "tid": "4.34"
+    },
+    {
+      "plats": 29,
+      "namn": "Andreas Lövgren",
+      "tid": "4.39"
+    },
+    {
+      "plats": 30,
+      "namn": "Katarina Rutemark",
+      "tid": "4.40"
+    },
+    {
+      "plats": 31,
+      "namn": "Alice Hägglund",
+      "tid": "4.43"
+    },
+    {
+      "plats": 32,
+      "namn": "Uno Berggren",
+      "tid": "4.45"
+    },
+    {
+      "plats": 33,
+      "namn": "Stina Berggren",
+      "tid": "4.46"
+    },
+    {
+      "plats": 34,
+      "namn": "Lea Sjögren Fjellner",
+      "tid": "4.53"
+    },
+    {
+      "plats": 35,
+      "namn": "Nina Fjellner",
+      "tid": "4.54"
+    },
+    {
+      "plats": 36,
+      "namn": "August Wernersson Grundström",
+      "tid": "4.57"
+    },
+    {
+      "plats": 37,
+      "namn": "Noa Åman Näslund",
+      "tid": "5.11"
+    },
+    {
+      "plats": 38,
+      "namn": "Magnus Åman Näslund",
+      "tid": "5.12"
+    },
+    {
+      "plats": 39,
+      "namn": "Björn Hökerberg",
+      "tid": "5.14"
+    },
+    {
+      "plats": 39,
+      "namn": "Signe Ögren",
+      "tid": "5.14"
+    },
+    {
+      "plats": 39,
+      "namn": "Flora Boström",
+      "tid": "5.14"
+    },
+    {
+      "plats": 42,
+      "namn": "Linnea Piribauer",
+      "tid": "5.15"
+    },
+    {
+      "plats": 43,
+      "namn": "Noa Intidam Norén",
+      "tid": "5.19"
+    },
+    {
+      "plats": 44,
+      "namn": "Ellen Seppä",
+      "tid": "5.20"
+    },
+    {
+      "plats": 45,
+      "namn": "Elsa Seppä",
+      "tid": "5.21"
+    },
+    {
+      "plats": 46,
+      "namn": "Mona Piribauer",
+      "tid": "5.22"
+    },
+    {
+      "plats": 47,
+      "namn": "Frank Alnqvist",
+      "tid": "5.23"
+    },
+    {
+      "plats": 48,
+      "namn": "Lars Vikberg",
+      "tid": "5.24"
+    },
+    {
+      "plats": 49,
+      "namn": "Zukaina Intidam",
+      "tid": "5.24"
+    },
+    {
+      "plats": 50,
+      "namn": "Eira Sundström",
+      "tid": "5.25"
+    },
+    {
+      "plats": 51,
+      "namn": "Johannes Sundström",
+      "tid": "5.26"
+    },
+    {
+      "plats": 52,
+      "namn": "Vega Alnqvist",
+      "tid": "5.27"
+    },
+    {
+      "plats": 53,
+      "namn": "Frida Sundström",
+      "tid": "5.28"
+    },
+    {
+      "plats": 54,
+      "namn": "Emma Ögren",
+      "tid": "5.29"
+    },
+    {
+      "plats": 54,
+      "namn": "Oscar Sundström",
+      "tid": "5.29"
+    },
+    {
+      "plats": 56,
+      "namn": "Veronika Svalenström",
+      "tid": "5.31"
+    },
+    {
+      "plats": 57,
+      "namn": "Ronja Grahn",
+      "tid": "5.52"
+    },
+    {
+      "plats": 58,
+      "namn": "Vilmer Lundgren",
+      "tid": "6.04"
+    },
+    {
+      "plats": 59,
+      "namn": "Oliver Åman Näslund",
+      "tid": "6.30"
+    },
+    {
+      "plats": 60,
+      "namn": "Sofia Åman Näslund",
+      "tid": "6.31"
+    },
+    {
+      "plats": 61,
+      "namn": "Heidi Hökerberg",
+      "tid": "6.49"
+    },
+    {
+      "plats": 62,
+      "namn": "Elisabet Hökerberg",
+      "tid": "5.51"
+    },
+    {
+      "plats": 63,
+      "namn": "Dante Wernersson Grundström",
+      "tid": "7.00"
+    },
+    {
+      "plats": 64,
+      "namn": "Dennis Grundström",
+      "tid": "7.01"
+    },
+    {
+      "plats": 65,
+      "namn": "Ann-Mari Juliusson",
+      "tid": "7.19"
+    },
+    {
+      "plats": 66,
+      "namn": "Maggie Melender",
+      "tid": "7.19"
+    },
+    {
+      "plats": 67,
+      "namn": "Edit Ögren",
+      "tid": "7.20"
+    },
+    {
+      "plats": 68,
+      "namn": "Signe Ögren",
+      "tid": "7.21"
+    },
+    {
+      "plats": 69,
+      "namn": "Johan Åberg",
+      "tid": "7.23"
+    },
+    {
+      "plats": 70,
+      "namn": "Emma Berggren",
+      "tid": "7.42"
+    },
+    {
+      "plats": 71,
+      "namn": "Tobias Berggren",
+      "tid": "7.40"
+    },
+    {
+      "plats": 72,
+      "namn": "Siv Melender",
+      "tid": "7.56"
+    },
+    {
+      "plats": 73,
+      "namn": "Liza NIlsson",
+      "tid": "7.57"
+    },
+    {
+      "plats": 74,
+      "namn": "Valter Lundgren",
+      "tid": "8.36"
+    },
+    {
+      "plats": 75,
+      "namn": "Vincent Lundgren",
+      "tid": "8.41"
+    }
+  ]
 },
     {
       "nr": 2,
