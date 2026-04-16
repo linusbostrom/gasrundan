@@ -111,7 +111,7 @@ async function init() {
     const dateLabel = formatDate(r.datum, r.dag);
     if (state === 'done') {
       return `<a class="runda-row done" href="lopp.html?runda=${r.nr}">
-        <div class="runda-nr">${r.nr}</div>
+        <div class="runda-nr">Runda ${r.nr}</div>
         <div class="runda-info">
           <div class="runda-dag">${dateLabel}</div>
           <div class="runda-dist">${r.stracka_meter} m</div>
@@ -121,7 +121,7 @@ async function init() {
     }
     if (state === 'next') {
       return `<div class="runda-row next">
-        <div class="runda-nr">${r.nr}</div>
+        <div class="runda-nr">Runda ${r.nr}</div>
         <div class="runda-info">
           <div class="runda-dag">${dateLabel}</div>
           <div class="runda-dist">${r.stracka_meter} m</div>
@@ -130,7 +130,7 @@ async function init() {
       </div>`;
     }
     return `<div class="runda-row upcoming">
-      <div class="runda-nr">${r.nr}</div>
+      <div class="runda-nr">Runda ${r.nr}</div>
       <div class="runda-info">
         <div class="runda-dag">${dateLabel}</div>
         <div class="runda-dist">${r.stracka_meter} m</div>
