@@ -87,7 +87,8 @@ body {
 }
 
 /* ── MAIN ── */
-.main { max-width: 680px; margin: 0 auto; padding: 0 1.25rem; }
+.main        { padding: 0 2.5rem; }
+.main--wide  { max-width: 1060px; }
 
 .section-head {
   font-family: var(--gc-andika); font-weight: 700; font-size: 19px;
@@ -263,6 +264,36 @@ body {
 /* ── ERROR / LOADING ── */
 .loading, .error-msg { text-align: center; padding: 3rem 1rem; font-size: 14px; color: var(--gc-muted); }
 .error-msg { color: #a32d2d; }
+
+/* ── DIKT ── */
+.poem-section {
+  border-top: 0.5px solid var(--gc-border);
+  margin-top: 2rem;
+  padding: 2rem 0 2.5rem;
+}
+.poem-title {
+  font-family: var(--gc-andika);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--gc-text);
+  margin-bottom: 1rem;
+}
+.poem-body {
+  font-family: var(--gc-nunito);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--gc-brown);
+  white-space: pre-line;
+}
+.poem-attribution {
+  margin-top: 1.25rem;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gc-muted);
+}
 
 /* ── FOOTER ── */
 .site-footer {
