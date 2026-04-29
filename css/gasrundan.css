@@ -88,7 +88,7 @@ body {
 
 /* ── MAIN ── */
 .main        { padding: 0 2.5rem; }
-.main--wide  { max-width: 1060px; }
+
 
 .section-head {
   font-family: var(--gc-andika); font-weight: 700; font-size: 19px;
@@ -308,7 +308,8 @@ body {
   .info-strip  { padding: 0.65rem 2.5rem; }
   .hero        { padding: 2rem 2.5rem; }
   .hero-title  { font-size: 30px; }
-  .main        { padding: 0 2.5rem; max-width: 1060px; }
+  .main        { padding: 0 2.5rem; }
+  .main--wide  { max-width: 1060px; }
 
   /* Resultatsida: rubrik full bredd, sedan 2 kolumner */
   .res-title { font-size: 42px; line-height: 1.05; }
