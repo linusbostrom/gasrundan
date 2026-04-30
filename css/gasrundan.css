@@ -88,6 +88,11 @@ body {
 
 /* ── MAIN ── */
 .main { max-width: 680px; margin: 0 auto; padding: 0 1.25rem; }
+.sub-nav-container { max-width: 1060px; margin: 0 auto; padding: 0 1.25rem; }
+
+@media (min-width: 720px) {
+  .sub-nav-container { padding: 0 2.5rem; }
+}
 
 
 .section-head {
