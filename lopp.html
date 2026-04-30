@@ -22,6 +22,7 @@
   </div>
 </header>
 
+<div id="sub-nav-container" class="sub-nav-container"></div>
 <main class="main main--wide" id="main-content">
   <p class="loading">Laddar…</p>
 </main>
@@ -137,7 +138,8 @@ async function init() {
          </div>`).join('')}`
     : `<p class="standing-note">Resultaten är inte publicerade ännu — kom tillbaka senare!</p>`;
 
-  main.innerHTML = subNavHTML + introHTML + `
+  document.getElementById('sub-nav-container').innerHTML = subNavHTML;
+main.innerHTML = introHTML + `
     <div class="res-desktop-wrap">
       ${artikelHTML}
       ${metaHTML}
