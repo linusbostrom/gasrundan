@@ -316,6 +316,21 @@ body {
   .main        { padding: 0 2.5rem; }
   .main--wide  { max-width: 1060px; }
 
+  /* Typografi-boost desktop */
+  .section-head          { font-size: 22px; }
+  .runda-nr              { font-size: 18px; }
+  .runda-dag             { font-size: 15px; }
+  .runda-dist            { font-size: 14px; }
+  .result-pill           { font-size: 15px; }
+  .standing-table td     { font-size: 16px; }
+  .hero-title            { font-size: 34px; }
+  .hero-sub              { font-size: 16px; }
+  .hero-meta-item        { font-size: 16px; }
+  .res-article           { font-size: 17px; }
+  .results-title         { font-size: 22px; }
+  .res-name, .res-tid    { font-size: 17px; }
+  .poem-body             { font-size: 16px; }
+
   /* Resultatsida: rubrik full bredd, sedan 2 kolumner */
   .res-title { font-size: 42px; line-height: 1.05; }
 
