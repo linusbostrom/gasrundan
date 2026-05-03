@@ -48,6 +48,10 @@ body {
   text-decoration: none;
 }
 
+header {
+  background: var(--gc-bg);
+}
+
 
 .logo-link {
   text-decoration: none;
