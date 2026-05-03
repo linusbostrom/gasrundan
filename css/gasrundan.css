@@ -103,7 +103,7 @@ body {
 
 /* ── START PAGE ── */
 .jubileum-emblem-img {
-  height: 36px;
+  height: 30px;
   width: auto;
   display: block;
 }
@@ -130,6 +130,14 @@ body {
   color: var(--gc-brown);
   letter-spacing: .03em;
   font-style: italic;
+}
+
+/* ── INNEHÅLLSBILD ── */
+.content-photo {
+  width: 100%;
+  border-radius: var(--gc-radius);
+  display: block;
+  margin: 1rem 0;
 }
 
 /* ── FOTO-BAND ── */
@@ -330,6 +338,10 @@ body {
   .results-title         { font-size: 22px; }
   .res-name, .res-tid    { font-size: 17px; }
   .poem-body             { font-size: 16px; }
+
+
+  /* Fix för startsidan */
+  .runda-nr { width: 6.5rem; }
 
   /* Resultatsida: rubrik full bredd, sedan 2 kolumner */
   .res-title { font-size: 42px; line-height: 1.05; }
