@@ -10,7 +10,7 @@
     .points-key { display: flex; flex-wrap: wrap; gap: 6px; margin: 0.25rem 0 1.5rem; }
     .points-pill { font-size: 12px; font-weight: 600; background: var(--gc-card); border: 0.5px solid var(--gc-border); border-radius: 20px; padding: 3px 10px; color: var(--gc-muted); }
     .points-pill span { color: var(--gc-text); font-weight: 700; }
-    .standing-full { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
+    .standing-full { width: 100%; border-collapse: collapse; margin-bottom: 2rem; margin-top:2rem; }
     .standing-full th { text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gc-muted); padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 0.5px solid var(--gc-border); }
     .standing-full th.right { text-align: right; }
     .standing-full td { padding: 0.65rem 0.5rem 0.65rem 0; border-bottom: 0.5px solid var(--gc-border); font-size: 15px; vertical-align: middle; }
@@ -95,12 +95,11 @@ main.innerHTML = `
 document.getElementById('sub-nav-container').innerHTML = subNavHTML;
 main.innerHTML = `
       <h1 class="section-head" style="padding-top:1.25rem">Poängliga 2026</h1>
-    <p class="updated-note">Efter ${doneRundor.length} av 10 rundor.</p>
     <p> Poäng ges till de främsta i varje runda; Ettan får 12 poäng, tvåan 9 och sedan 7-5-4-3-2-1 för placering tre till åtta. Från placering nio ges 0,5 poäng för alla
 som deltar.</p>
 <p>Bästa kille och tjej (de med högst poäng) får var sin pokal.
-Vid samma poäng gå den före som har bästa enskilda resultat på någon run-
-da.</p>
+Vid samma poäng gå den före som har bästa enskilda resultat på någon runda.</p>
+  <p class="updated-note">Efter ${doneRundor.length} av 10 rundor.</p>
     <table class="standing-full">
       <thead><tr><th></th><th>Namn</th><th class="right">Totalt</th></tr></thead>
       <tbody>${rows}</tbody>
