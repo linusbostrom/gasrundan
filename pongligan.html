@@ -96,17 +96,11 @@ document.getElementById('sub-nav-container').innerHTML = subNavHTML;
 main.innerHTML = `
       <h1 class="section-head" style="padding-top:1.25rem">Poängliga 2026</h1>
     <p class="updated-note">Efter ${doneRundor.length} av 10 rundor.</p>
-    <div class="points-key">
-      <div class="points-pill">1:a <span>12 p</span></div>
-      <div class="points-pill">2:a <span>9 p</span></div>
-      <div class="points-pill">3:a <span>7 p</span></div>
-      <div class="points-pill">4:a <span>5 p</span></div>
-      <div class="points-pill">5:a <span>4 p</span></div>
-      <div class="points-pill">6:a <span>3 p</span></div>
-      <div class="points-pill">7:a <span>2 p</span></div>
-      <div class="points-pill">8:a <span>1 p</span></div>
-      <div class="points-pill">Övriga <span>0,5 p</span></div>
-    </div>
+    <p> Poäng ges till de främsta i varje runda; Ettan får 12 poäng, tvåan 9 och sedan 7-5-4-3-2-1 för placering tre till åtta. Från placering nio ges 0,5 poäng för alla
+som deltar.</p>
+<p>Bästa kille och tjej (de med högst poäng) får var sin pokal.
+Vid samma poäng gå den före som har bästa enskilda resultat på någon run-
+da.</p>
     <table class="standing-full">
       <thead><tr><th></th><th>Namn</th><th class="right">Totalt</th></tr></thead>
       <tbody>${rows}</tbody>
