@@ -105,20 +105,21 @@ async function init() {
     ? `<div class="res-article-area">${runda.artikel.split('\n').filter(s => s.trim()).map(s => `<p class="res-article">${s}</p>`).join('')}</div>`
     : `<div class="res-article-area"></div>`;
 
-  // ── Meta ──
+// ── Meta ──
   const hasVader   = runda.vader;
+  const hasSnodjup = runda.snodjup;
   const hasPersInfo = runda.tidtagare || runda.nummergivare;
-
   const metaHTML = `
     <div class="res-meta-col">
       <div class="meta-row">
         <div class="meta-box">
-          ${hasVader ? `<div class="meta-item"><div class="meta-label">Väder</div><div class="meta-value">${runda.vader}</div></div>` : ''}
           <div class="meta-item"><div class="meta-label">Bana</div><div class="meta-value">${runda.stracka_meter} m</div></div>
+          ${hasVader   ? `<div class="meta-item"><div class="meta-label">Väder</div><div class="meta-value">${runda.vader}</div></div>` : ''}
+          ${hasSnodjup ? `<div class="meta-item"><div class="meta-label">Snödjup</div><div class="meta-value">${runda.snodjup}</div></div>` : ''}
         </div>
         ${hasPersInfo ? `
         <div class="meta-box">
-          ${runda.tidtagare   ? `<div class="meta-item"><div class="meta-label">Tidtagare</div><div class="meta-value">${runda.tidtagare}</div></div>` : ''}
+          ${runda.tidtagare    ? `<div class="meta-item"><div class="meta-label">Tidtagare</div><div class="meta-value">${runda.tidtagare}</div></div>` : ''}
           ${runda.nummergivare ? `<div class="meta-item"><div class="meta-label">Nummergivare</div><div class="meta-value">${runda.nummergivare}</div></div>` : ''}
         </div>` : ''}
       </div>
