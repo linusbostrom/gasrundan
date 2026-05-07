@@ -104,6 +104,13 @@ header {
   padding: 1.25rem 0 0.6rem;
 }
 
+/* -- GENERAL TYPOGRAPHY -- */
+h3 {
+  font-family: var(--gc-andika);
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
 
 /* ── START PAGE ── */
 .jubileum-emblem-img {
@@ -284,7 +291,6 @@ header {
 
 /* ── DIKT ── */
 .poem-section {
-  border-top: 0.5px solid var(--gc-border);
   margin-top: 2rem;
   padding: 2rem 0 2.5rem;
 }
