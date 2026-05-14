@@ -2646,42 +2646,52 @@
       "tid": "9.03"
     },
     {
-      "plats": 58,
+      "plats": 58, 
+      "namn": "Ebbot Juliusson",
+      "tid": "9.23"
+    },
+    {
+      "plats": 59, 
+      "namn": "Sofia Åman Näslund",
+      "tid": "9.24"
+    },
+    {
+      "plats": 60,
       "namn": "Vilmer Lundgren",
       "tid": "9.43"
     },
     {
-      "plats": 59,
+      "plats": 61,
       "namn": "Juni Söderberg",
       "tid": "10.29"
     },
     {
-      "plats": 60,
+      "plats": 62,
       "namn": "Max Söderberg",
       "tid": "10.30"
     },
     {
-      "plats": 61,
+      "plats": 63,
       "namn": "Emma Berggren",
       "tid": "10.47"
     },
     {
-      "plats": 62,
+      "plats": 64,
       "namn": "Tobias Berggren",
       "tid": "10.49"
     },
     {
-      "plats": 63,
+      "plats": 65,
       "namn": "Vincent Lundgren",
       "tid": "12.31"
     },
     {
-      "plats": 64,
+      "plats": 66,
       "namn": "Valter Lundgren",
       "tid": "12.34"
     },
     {
-      "plats": 65,
+      "plats": 67,
       "namn": "Tommy Lundgren",
       "tid": "12.35"
     }
