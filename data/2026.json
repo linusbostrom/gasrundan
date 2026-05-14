@@ -342,117 +342,117 @@
   },
   {
     "plats": 68,
+    "namn": "Sofia Åman Näslund",
+    "poang": 1.5
+  },
+  {
+    "plats": 68,
     "namn": "Ellen Seppä",
     "poang": 1.5
   },
   {
-    "plats": 69,
+    "plats": 70,
     "namn": "Eira Sundström",
     "poang": 1.5
   },
   {
-    "plats": 70,
+    "plats": 71,
     "namn": "Edit Ögren",
     "poang": 1.5
   },
   {
-    "plats": 71,
+    "plats": 72,
+    "namn": "Oliver Åman Näslund",
+    "poang": 1.5
+  },
+  {
+    "plats": 73,
     "namn": "Kenneth Juliusson",
     "poang": 1.5
   },
   {
-    "plats": 72,
+    "plats": 74,
     "namn": "Nelly Nilsson",
     "poang": 1
   },
   {
-    "plats": 73,
+    "plats": 75,
     "namn": "Adela Intidam Norén",
     "poang": 1
   },
   {
-    "plats": 74,
+    "plats": 76,
     "namn": "Camilla Nilsson",
     "poang": 1
   },
   {
-    "plats": 75,
+    "plats": 77,
     "namn": "Nadja Dolgova",
     "poang": 1
   },
   {
-    "plats": 76,
+    "plats": 78,
     "namn": "Gustaf Andersson",
     "poang": 1
   },
   {
-    "plats": 77,
+    "plats": 79,
     "namn": "Laura Grahn",
     "poang": 1
   },
   {
-    "plats": 78,
+    "plats": 80,
     "namn": "Cecilia Ekerfalk Lövgren",
     "poang": 1
   },
   {
-    "plats": 78,
+    "plats": 80,
     "namn": "Marcus Piribauer",
     "poang": 1
   },
   {
-    "plats": 80,
+    "plats": 82,
     "namn": "Noa Intidam Norén",
     "poang": 1
   },
   {
-    "plats": 81,
+    "plats": 83,
     "namn": "Amanda Alnqvist",
     "poang": 1
   },
   {
-    "plats": 82,
+    "plats": 84,
     "namn": "Sukaina Intidam",
     "poang": 1
   },
   {
-    "plats": 83,
-    "namn": "Sofia Åman Näslund",
-    "poang": 1
-  },
-  {
-    "plats": 84,
+    "plats": 85,
     "namn": "Elsa Seppä",
     "poang": 1
   },
   {
-    "plats": 84,
+    "plats": 85,
     "namn": "Elsa Lundstig",
     "poang": 1
   },
   {
-    "plats": 86,
+    "plats": 87,
     "namn": "Johannes Sundström",
     "poang": 1
   },
   {
-    "plats": 86,
+    "plats": 87,
     "namn": "Maggie Melender",
     "poang": 1
   },
   {
-    "plats": 88,
+    "plats": 89,
     "namn": "Tina Boström",
     "poang": 1
   },
   {
-    "plats": 89,
-    "namn": "Helix Grahn",
-    "poang": 1
-  },
-  {
     "plats": 90,
-    "namn": "Oliver Åman Näslund",
+    "namn": "Helix Grahn",
     "poang": 1
   },
   {
@@ -2647,7 +2647,7 @@
     },
     {
       "plats": 58, 
-      "namn": "Ebbot Juliusson",
+      "namn": "Oliver Åman Näslund",
       "tid": "9.23"
     },
     {
