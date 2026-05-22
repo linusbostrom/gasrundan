@@ -8,17 +8,17 @@
   {
     "plats": 1,
     "namn": "Dylan Sjödin",
-    "poang": 60
+    "poang": 72
   },
   {
     "plats": 2,
     "namn": "Liam Edström",
-    "poang": 43
+    "poang": 50
   },
   {
     "plats": 3,
     "namn": "Linn Sjödin",
-    "poang": 32
+    "poang": 41
   },
   {
     "plats": 4,
@@ -27,33 +27,33 @@
   },
   {
     "plats": 5,
+    "namn": "Monica Sjödin",
+    "poang": 17
+  },
+  {
+    "plats": 6,
     "namn": "Kennet Sjödin",
     "poang": 15
   },
   {
-    "plats": 6,
-    "namn": "Monica Sjödin",
+    "plats": 7,
+    "namn": "Edvin Nilsson",
     "poang": 13
   },
   {
-    "plats": 7,
-    "namn": "Edvin Nilsson",
-    "poang": 10
+    "plats": 8,
+    "namn": "Liam Grahn",
+    "poang": 9.5
   },
   {
-    "plats": 8,
+    "plats": 9,
     "namn": "Herman Jonsson",
     "poang": 7
   },
   {
-    "plats": 9,
-    "namn": "Liam Grahn",
-    "poang": 4.5
-  },
-  {
     "plats": 10,
     "namn": "Elly Andersson",
-    "poang": 4
+    "poang": 4.5
   },
   {
     "plats": 11,
@@ -72,646 +72,681 @@
   },
   {
     "plats": 14,
-    "namn": "Elsa Enberg Lundgren",
-    "poang": 2.5
-  },
-  {
-    "plats": 14,
-    "namn": "Johan Piribauer",
-    "poang": 2.5
-  },
-  {
-    "plats": 16,
     "namn": "Mille Åberg",
-    "poang": 2.5
+    "poang": 3
+  },
+  {
+    "plats": 15,
+    "namn": "Tomas Edström",
+    "poang": 3
   },
   {
     "plats": 16,
-    "namn": "Jackie Ekerfalk Lövgren",
-    "poang": 2.5
+    "namn": "Ronja Grahn",
+    "poang": 3
+  },
+  {
+    "plats": 16,
+    "namn": "Fanny Ekerfalk Lövgren",
+    "poang": 3
   },
   {
     "plats": 18,
-    "namn": "Tomas Edström",
-    "poang": 2.5
+    "namn": "Saga Andersson",
+    "poang": 3
   },
   {
     "plats": 19,
-    "namn": "Fanny Ekerfalk Lövgren",
-    "poang": 2.5
+    "namn": "August Wernersson Grundström",
+    "poang": 3
   },
   {
     "plats": 20,
-    "namn": "Saga Andersson",
-    "poang": 2.5
+    "namn": "Frank Alnqvist",
+    "poang": 3
   },
   {
     "plats": 21,
-    "namn": "Ronja Grahn",
-    "poang": 2.5
+    "namn": "Dante Wernersson Grundström",
+    "poang": 3
   },
   {
     "plats": 22,
-    "namn": "Uno Berggren",
-    "poang": 2.5
+    "namn": "Dennis Grundström",
+    "poang": 3
   },
   {
-    "plats": 23,
-    "namn": "August Wernersson Grundström",
-    "poang": 2.5
+    "plats": 22,
+    "namn": "Vilmer Lundgren",
+    "poang": 3
   },
   {
     "plats": 24,
-    "namn": "Frank Alnqvist",
-    "poang": 2.5
+    "namn": "Johan Åberg",
+    "poang": 3
   },
   {
     "plats": 25,
-    "namn": "Mona Piribauer",
-    "poang": 2.5
+    "namn": "Vincent Lundgren",
+    "poang": 3
   },
   {
     "plats": 26,
-    "namn": "Vilmer Lundgren",
-    "poang": 2.5
+    "namn": "Valter Lundgren",
+    "poang": 3
   },
   {
     "plats": 27,
-    "namn": "Dante Wernersson Grundström",
+    "namn": "Tobbe Nilsson",
     "poang": 2.5
   },
   {
     "plats": 28,
-    "namn": "Dennis Grundström",
+    "namn": "Elsa Enberg Lundgren",
     "poang": 2.5
   },
   {
-    "plats": 29,
-    "namn": "Johan Åberg",
+    "plats": 28,
+    "namn": "Johan Piribauer",
     "poang": 2.5
   },
   {
     "plats": 30,
-    "namn": "Emma Berggren",
+    "namn": "Jackie Ekerfalk Lövgren",
     "poang": 2.5
   },
   {
     "plats": 31,
-    "namn": "Vincent Lundgren",
+    "namn": "Ella Edström",
     "poang": 2.5
   },
   {
-    "plats": 32,
-    "namn": "Valter Lundgren",
+    "plats": 31,
+    "namn": "Ejvind Boström",
     "poang": 2.5
   },
   {
     "plats": 33,
+    "namn": "Lava Juliusson",
+    "poang": 2.5
+  },
+  {
+    "plats": 33,
+    "namn": "Signe Ögren",
+    "poang": 2.5
+  },
+  {
+    "plats": 35,
+    "namn": "Uno Berggren",
+    "poang": 2.5
+  },
+  {
+    "plats": 36,
+    "namn": "Max Söderberg",
+    "poang": 2.5
+  },
+  {
+    "plats": 37,
+    "namn": "Björn Hökerberg",
+    "poang": 2.5
+  },
+  {
+    "plats": 38,
+    "namn": "Mona Piribauer",
+    "poang": 2.5
+  },
+  {
+    "plats": 39,
+    "namn": "Heidi Hökerberg",
+    "poang": 2.5
+  },
+  {
+    "plats": 40,
+    "namn": "Tommy Lundgren",
+    "poang": 2.5
+  },
+  {
+    "plats": 41,
+    "namn": "Juni Söderberg",
+    "poang": 2.5
+  },
+  {
+    "plats": 42,
+    "namn": "Emma Berggren",
+    "poang": 2.5
+  },
+  {
+    "plats": 43,
     "namn": "William Edström",
     "poang": 2
   },
   {
-    "plats": 34,
-    "namn": "Ella Edström",
-    "poang": 2
-  },
-  {
-    "plats": 34,
-    "namn": "Ejvind Boström",
-    "poang": 2
-  },
-  {
-    "plats": 36,
-    "namn": "Lava Juliusson",
-    "poang": 2
-  },
-  {
-    "plats": 36,
-    "namn": "Signe Ögren",
-    "poang": 2
-  },
-  {
-    "plats": 38,
-    "namn": "Linnea Piribauer",
-    "poang": 2
-  },
-  {
-    "plats": 39,
-    "namn": "Tyra Söderberg",
-    "poang": 2
-  },
-  {
-    "plats": 40,
-    "namn": "Stina Berggren",
-    "poang": 2
-  },
-  {
-    "plats": 41,
-    "namn": "Max Söderberg",
-    "poang": 2
-  },
-  {
-    "plats": 42,
-    "namn": "Björn Hökerberg",
-    "poang": 2
-  },
-  {
-    "plats": 43,
-    "namn": "Lea Sjögren Fjellner",
-    "poang": 2
-  },
-  {
     "plats": 44,
-    "namn": "Nina Fjellner",
+    "namn": "Camilla Nilsson",
     "poang": 2
   },
   {
-    "plats": 44,
-    "namn": "Tobias Berggren",
+    "plats": 45,
+    "namn": "Emma Lundgren",
     "poang": 2
   },
   {
     "plats": 46,
-    "namn": "Lars Vikberg",
+    "namn": "Hannes Boström",
     "poang": 2
   },
   {
     "plats": 47,
-    "namn": "Terese Söderberg",
+    "namn": "Ebbot Juliusson",
     "poang": 2
   },
   {
-    "plats": 48,
-    "namn": "Heidi Hökerberg",
+    "plats": 47,
+    "namn": "Linnea Piribauer",
     "poang": 2
   },
   {
     "plats": 49,
-    "namn": "Elisabet Hökerberg",
+    "namn": "Tyra Söderberg",
     "poang": 2
   },
   {
     "plats": 50,
-    "namn": "Juni Söderberg",
+    "namn": "Stina Berggren",
     "poang": 2
   },
   {
-    "plats": 51,
-    "namn": "Tommy Lundgren",
+    "plats": 50,
+    "namn": "Mio Söderberg",
     "poang": 2
   },
   {
     "plats": 52,
-    "namn": "Emma Lundgren",
-    "poang": 1.5
+    "namn": "Vega Alnqvist",
+    "poang": 2
   },
   {
-    "plats": 53,
+    "plats": 52,
+    "namn": "Alice Hägglund",
+    "poang": 2
+  },
+  {
+    "plats": 54,
+    "namn": "Flora Boström",
+    "poang": 2
+  },
+  {
+    "plats": 55,
+    "namn": "Lea Sjögren Fjellner",
+    "poang": 2
+  },
+  {
+    "plats": 56,
+    "namn": "Nina Fjellner",
+    "poang": 2
+  },
+  {
+    "plats": 56,
+    "namn": "Tobias Berggren",
+    "poang": 2
+  },
+  {
+    "plats": 58,
+    "namn": "Lars Vikberg",
+    "poang": 2
+  },
+  {
+    "plats": 59,
+    "namn": "Ann-Mari Juliusson",
+    "poang": 2
+  },
+  {
+    "plats": 60,
+    "namn": "Terese Söderberg",
+    "poang": 2
+  },
+  {
+    "plats": 61,
+    "namn": "Kenneth Juliusson",
+    "poang": 2
+  },
+  {
+    "plats": 62,
+    "namn": "Elisabet Hökerberg",
+    "poang": 2
+  },
+  {
+    "plats": 63,
     "namn": "Hildur Jansson",
     "poang": 1.5
   },
   {
-    "plats": 53,
+    "plats": 63,
     "namn": "Ebbe Seppä",
     "poang": 1.5
   },
   {
-    "plats": 55,
-    "namn": "Hannes Boström",
-    "poang": 1.5
-  },
-  {
-    "plats": 56,
-    "namn": "Alvin Sjögren Fjellner",
-    "poang": 1.5
-  },
-  {
-    "plats": 57,
-    "namn": "Manfred Piribauer",
-    "poang": 1.5
-  },
-  {
-    "plats": 58,
-    "namn": "Evelina Bergström",
-    "poang": 1.5
-  },
-  {
-    "plats": 59,
-    "namn": "Ebbot Juliusson",
-    "poang": 1.5
-  },
-  {
-    "plats": 60,
-    "namn": "Nelion Tino",
-    "poang": 1.5
-  },
-  {
-    "plats": 61,
-    "namn": "Mio Söderberg",
-    "poang": 1.5
-  },
-  {
-    "plats": 62,
-    "namn": "Alice Hägglund",
-    "poang": 1.5
-  },
-  {
-    "plats": 62,
-    "namn": "Noa Åman Näslund",
-    "poang": 1.5
-  },
-  {
-    "plats": 64,
-    "namn": "Magnus Åman Näslund",
-    "poang": 1.5
-  },
-  {
     "plats": 65,
-    "namn": "Flora Boström",
+    "namn": "Nelly Nilsson",
     "poang": 1.5
   },
   {
     "plats": 66,
-    "namn": "Ann-Mari Juliusson",
+    "namn": "Nadja Dolgova",
     "poang": 1.5
   },
   {
     "plats": 67,
-    "namn": "Vega Alnqvist",
+    "namn": "Alvin Sjögren Fjellner",
     "poang": 1.5
   },
   {
     "plats": 68,
-    "namn": "Sofia Åman Näslund",
+    "namn": "Laura Grahn",
     "poang": 1.5
   },
   {
-    "plats": 68,
-    "namn": "Ellen Seppä",
+    "plats": 69,
+    "namn": "Manfred Piribauer",
     "poang": 1.5
   },
   {
     "plats": 70,
-    "namn": "Eira Sundström",
+    "namn": "Evelina Bergström",
     "poang": 1.5
   },
   {
     "plats": 71,
-    "namn": "Edit Ögren",
+    "namn": "Nelion Tino",
     "poang": 1.5
   },
   {
     "plats": 72,
-    "namn": "Oliver Åman Näslund",
+    "namn": "Helix Grahn",
     "poang": 1.5
   },
   {
     "plats": 73,
-    "namn": "Kenneth Juliusson",
+    "namn": "Noa Åman Näslund",
     "poang": 1.5
   },
   {
     "plats": 74,
-    "namn": "Nelly Nilsson",
-    "poang": 1
+    "namn": "Magnus Åman Näslund",
+    "poang": 1.5
   },
   {
     "plats": 75,
+    "namn": "Amanda Alnqvist",
+    "poang": 1.5
+  },
+  {
+    "plats": 76,
+    "namn": "Sofia Åman Näslund",
+    "poang": 1.5
+  },
+  {
+    "plats": 76,
+    "namn": "Ellen Seppä",
+    "poang": 1.5
+  },
+  {
+    "plats": 78,
+    "namn": "Eira Sundström",
+    "poang": 1.5
+  },
+  {
+    "plats": 79,
+    "namn": "Robin Svanbro",
+    "poang": 1.5
+  },
+  {
+    "plats": 80,
+    "namn": "Edit Ögren",
+    "poang": 1.5
+  },
+  {
+    "plats": 81,
+    "namn": "Oliver Åman Näslund",
+    "poang": 1.5
+  },
+  {
+    "plats": 82,
+    "namn": "Nikki Nord Arvidsson",
+    "poang": 1.5
+  },
+  {
+    "plats": 83,
+    "namn": "Joel Arvidsson",
+    "poang": 1.5
+  },
+  {
+    "plats": 84,
+    "namn": "Gustav Andersson",
+    "poang": 1
+  },
+  {
+    "plats": 85,
     "namn": "Adela Intidam Norén",
     "poang": 1
   },
   {
-    "plats": 76,
-    "namn": "Camilla Nilsson",
-    "poang": 1
-  },
-  {
-    "plats": 77,
-    "namn": "Nadja Dolgova",
-    "poang": 1
-  },
-  {
-    "plats": 78,
+    "plats": 86,
     "namn": "Gustaf Andersson",
     "poang": 1
   },
   {
-    "plats": 79,
-    "namn": "Laura Grahn",
-    "poang": 1
-  },
-  {
-    "plats": 80,
+    "plats": 87,
     "namn": "Cecilia Ekerfalk Lövgren",
     "poang": 1
   },
   {
-    "plats": 80,
+    "plats": 87,
     "namn": "Marcus Piribauer",
     "poang": 1
   },
   {
-    "plats": 82,
+    "plats": 89,
     "namn": "Noa Intidam Norén",
     "poang": 1
   },
   {
-    "plats": 83,
-    "namn": "Amanda Alnqvist",
-    "poang": 1
-  },
-  {
-    "plats": 84,
-    "namn": "Sukaina Intidam",
-    "poang": 1
-  },
-  {
-    "plats": 85,
-    "namn": "Elsa Seppä",
-    "poang": 1
-  },
-  {
-    "plats": 85,
-    "namn": "Elsa Lundstig",
-    "poang": 1
-  },
-  {
-    "plats": 87,
-    "namn": "Johannes Sundström",
-    "poang": 1
-  },
-  {
-    "plats": 87,
-    "namn": "Maggie Melender",
-    "poang": 1
-  },
-  {
-    "plats": 89,
-    "namn": "Tina Boström",
-    "poang": 1
-  },
-  {
     "plats": 90,
-    "namn": "Helix Grahn",
+    "namn": "Majken Pavval",
     "poang": 1
   },
   {
     "plats": 91,
-    "namn": "Frida Sundström",
+    "namn": "Markus Pavval",
     "poang": 1
   },
   {
     "plats": 92,
-    "namn": "Nikki Nord Arvidsson",
+    "namn": "Sukaina Intidam",
     "poang": 1
   },
   {
     "plats": 93,
-    "namn": "Joel Arvidsson",
+    "namn": "Elsa Seppä",
     "poang": 1
   },
   {
-    "plats": 94,
-    "namn": "Robin Svanbro",
+    "plats": 93,
+    "namn": "Elsa Lundstig",
     "poang": 1
   },
   {
     "plats": 95,
-    "namn": "August Silvergran",
+    "namn": "Johannes Sundström",
     "poang": 1
   },
   {
-    "plats": 96,
-    "namn": "Mattias Nilsson",
+    "plats": 95,
+    "namn": "Maggie Melender",
     "poang": 1
   },
   {
     "plats": 97,
-    "namn": "Hedvig Haak",
+    "namn": "Tina Boström",
     "poang": 1
   },
   {
     "plats": 98,
-    "namn": "Caroline Haak",
+    "namn": "Rocco Nord Arvidsson",
     "poang": 1
   },
   {
     "plats": 99,
-    "namn": "Siv Melender",
+    "namn": "Frida Sundström",
     "poang": 1
   },
   {
-    "plats": 100,
-    "namn": "Liza Nilsson",
+    "plats": 99,
+    "namn": "Linn Arvidsson",
     "poang": 1
   },
   {
     "plats": 101,
-    "namn": "Therese Schützer",
+    "namn": "August Silvergran",
     "poang": 1
   },
   {
     "plats": 102,
-    "namn": "Måns Wernersson Grundström",
+    "namn": "Mattias Nilsson",
     "poang": 1
   },
   {
     "plats": 103,
-    "namn": "Juni Wernersson",
+    "namn": "Hedvig Haak",
     "poang": 1
   },
   {
     "plats": 104,
+    "namn": "Caroline Haak",
+    "poang": 1
+  },
+  {
+    "plats": 105,
+    "namn": "Siv Melender",
+    "poang": 1
+  },
+  {
+    "plats": 106,
+    "namn": "Liza Nilsson",
+    "poang": 1
+  },
+  {
+    "plats": 107,
+    "namn": "Therese Schützer",
+    "poang": 1
+  },
+  {
+    "plats": 108,
+    "namn": "Måns Wernersson Grundström",
+    "poang": 1
+  },
+  {
+    "plats": 109,
+    "namn": "Juni Wernersson",
+    "poang": 1
+  },
+  {
+    "plats": 110,
     "namn": "Villem Mähler",
     "poang": 0.5
   },
   {
-    "plats": 105,
+    "plats": 111,
     "namn": "Peter Mähler",
     "poang": 0.5
   },
   {
-    "plats": 106,
+    "plats": 112,
     "namn": "Sophia Nordberg",
     "poang": 0.5
   },
   {
-    "plats": 107,
+    "plats": 113,
     "namn": "Agnes Lundstig",
     "poang": 0.5
   },
   {
-    "plats": 108,
-    "namn": "Gustav Andersson",
-    "poang": 0.5
-  },
-  {
-    "plats": 109,
-    "namn": "Gustaf Söderberg",
-    "poang": 0.5
-  },
-  {
-    "plats": 110,
-    "namn": "Andreas Lövgren",
-    "poang": 0.5
-  },
-  {
-    "plats": 110,
-    "namn": "Sally Mähler",
-    "poang": 0.5
-  },
-  {
-    "plats": 110,
-    "namn": "Alice Siekas",
-    "poang": 0.5
-  },
-  {
     "plats": 113,
-    "namn": "Katarina Rutemark",
+    "namn": "Hildur Jansson Lindberg",
     "poang": 0.5
   },
   {
-    "plats": 113,
-    "namn": "Lovisa Sandström",
+    "plats": 115,
+    "namn": "Melinda Sellbom",
     "poang": 0.5
   },
   {
-    "plats": 113,
-    "namn": "Malin Siekas",
-    "poang": 0.5
-  },
-  {
-    "plats": 113,
-    "namn": "Tobbe Nilsson",
+    "plats": 116,
+    "namn": "Johanna Lundgren",
     "poang": 0.5
   },
   {
     "plats": 117,
-    "namn": "Erik Viklund",
+    "namn": "Gustaf Söderberg",
     "poang": 0.5
   },
   {
-    "plats": 118,
-    "namn": "Ted Sundström",
+    "plats": 117,
+    "namn": "Ida Söderberg",
     "poang": 0.5
   },
   {
     "plats": 119,
-    "namn": "André Sundström",
+    "namn": "Andreas Lövgren",
     "poang": 0.5
   },
   {
-    "plats": 120,
-    "namn": "Klaas Menkveld",
+    "plats": 119,
+    "namn": "Sally Mähler",
     "poang": 0.5
   },
   {
-    "plats": 121,
-    "namn": "Ester Holmström",
+    "plats": 119,
+    "namn": "Alice Siekas",
     "poang": 0.5
   },
   {
     "plats": 122,
-    "namn": "Verner Karlsson",
+    "namn": "Katarina Rutemark",
     "poang": 0.5
   },
   {
-    "plats": 123,
-    "namn": "Edvin Olsson",
+    "plats": 122,
+    "namn": "Lovisa Sandström",
     "poang": 0.5
   },
   {
-    "plats": 124,
-    "namn": "Oskar Nyman",
+    "plats": 122,
+    "namn": "Malin Siekas",
     "poang": 0.5
   },
   {
-    "plats": 125,
-    "namn": "Nilla Karlsson",
-    "poang": 0.5
-  },
-  {
-    "plats": 126,
-    "namn": "Oscar Sundström",
+    "plats": 122,
+    "namn": "Kerstin Sundström",
     "poang": 0.5
   },
   {
     "plats": 126,
-    "namn": "Emma Ögren",
+    "namn": "Erik Viklund",
+    "poang": 0.5
+  },
+  {
+    "plats": 127,
+    "namn": "Liam Holmberg",
     "poang": 0.5
   },
   {
     "plats": 128,
-    "namn": "Veronika Svalenström",
+    "namn": "Jack Sundqvist",
     "poang": 0.5
   },
   {
-    "plats": 128,
-    "namn": "Rocco Nord Arvidsson",
-    "poang": 0.5
-  },
-  {
-    "plats": 130,
-    "namn": "Majken Pavval",
+    "plats": 129,
+    "namn": "Ted Sundström",
     "poang": 0.5
   },
   {
     "plats": 130,
-    "namn": "Linn Arvidsson",
+    "namn": "André Sundström",
+    "poang": 0.5
+  },
+  {
+    "plats": 131,
+    "namn": "Klaas Menkveld",
     "poang": 0.5
   },
   {
     "plats": 132,
-    "namn": "Siv Berggren",
+    "namn": "Ester Holmström",
     "poang": 0.5
   },
   {
     "plats": 133,
-    "namn": "Selma Frodin",
+    "namn": "Verner Karlsson",
     "poang": 0.5
   },
   {
-    "plats": 133,
-    "namn": "Kerstin Marklund",
+    "plats": 134,
+    "namn": "Edvin Olsson",
     "poang": 0.5
   },
   {
     "plats": 135,
-    "namn": "Markus Pavval",
+    "namn": "Oskar Nyman",
     "poang": 0.5
   },
   {
     "plats": 136,
-    "namn": "Oskar Silvergran",
+    "namn": "Nilla Karlsson",
     "poang": 0.5
   },
   {
     "plats": 137,
-    "namn": "Tilma Tino",
+    "namn": "Oscar Sundström",
     "poang": 0.5
   },
   {
-    "plats": 138,
-    "namn": "Bo Kaddik",
+    "plats": 137,
+    "namn": "Emma Ögren",
     "poang": 0.5
   },
   {
     "plats": 139,
-    "namn": "David Viklund",
+    "namn": "Veronika Svalenström",
     "poang": 0.5
   },
   {
     "plats": 140,
-    "namn": "Linus Boström",
+    "namn": "Siv Berggren",
     "poang": 0.5
   },
   {
     "plats": 141,
+    "namn": "Selma Frodin",
+    "poang": 0.5
+  },
+  {
+    "plats": 141,
+    "namn": "Kerstin Marklund",
+    "poang": 0.5
+  },
+  {
+    "plats": 143,
+    "namn": "Oskar Silvergran",
+    "poang": 0.5
+  },
+  {
+    "plats": 144,
+    "namn": "Tilma Tino",
+    "poang": 0.5
+  },
+  {
+    "plats": 145,
+    "namn": "Bo Kaddik",
+    "poang": 0.5
+  },
+  {
+    "plats": 146,
+    "namn": "David Viklund",
+    "poang": 0.5
+  },
+  {
+    "plats": 147,
+    "namn": "Linus Boström",
+    "poang": 0.5
+  },
+  {
+    "plats": 148,
     "namn": "Love Holmqvist",
     "poang": 0.5
   },
   {
-    "plats": 142,
+    "plats": 149,
     "namn": "Fanny Zetterberg",
     "poang": 0.5
   }
@@ -2699,17 +2734,319 @@
 
 },
     {
-      "nr": 6,
-      "dag": "Fredag",
-      "datum": "2026-05-22",
-      "stracka_meter": 1150,
-      "rubrik": "",
-      "artikel": "",
-      "vader": "",
-      "tidtagare": "",
-      "nummergivare": "",
-      "resultat": []
+  "nr": 6,
+  "dag": "Fredag",
+  "datum": "2026-05-22",
+  "stracka_meter": 1150,
+  "rubrik": "Sjödins – igen",
+  "artikel": "Dylan Sjödin vinner även den sjätte rundan och pressar sin fjolårstid med 25 sekunder. Han var nu 14 sekunder över killrekordet ( 3.00 Hannes Boström 2013) men bara två ynka sekunder från att komma in på fembästalistan.\n\nLinn Sjödin, storasyrran, låg trea vid varvningen men  spurtade förbi Liam Edström till andraplats. Linns tid var 10 sekunder bättre än i fjol och 22 sekunder över tjejrekordet (3.25 Karin Nilsson 1997) och 10 sekunder från fembästalistan för tjejer. Nästa år?\n\nLiam Grahn kom fyra, på sin bästa placering i år.\n\nSjödinarna har vi nämnt, men det fanns fler som klippte sina fjolårstider på rundan; Liam Edström (med 17 sekunder), Nelly Nilsson (21), Liam Grahn (27), Mille Åberg (47), Frank Alnqvist (1.04), Signe Ögren (1.05) och inte minst Vega Alnqvist (2.48).",
+  "vader": "+18°. Många kortbrallor.",
+  "vind": "Svag östlig. Mest sol. Björk, hägg och rönn slår ut.",
+  "tidtagare": "Christine och Lennart",
+  "nummergivare": "Ki och Harry",
+  "resultat": [
+    {
+      "plats": 1,
+      "namn": "Dylan Sjödin",
+      "tid": "3.14"
     },
+    {
+      "plats": 2,
+      "namn": "Linn Sjödin",
+      "tid": "3.47"
+    },
+    {
+      "plats": 3,
+      "namn": "Liam Edström",
+      "tid": "3.48"
+    },
+    {
+      "plats": 4,
+      "namn": "Liam Grahn",
+      "tid": "4.34"
+    },
+    {
+      "plats": 5,
+      "namn": "Monica Sjödin",
+      "tid": "4.35"
+    },
+    {
+      "plats": 6,
+      "namn": "Edvin Nilsson",
+      "tid": "4.46"
+    },
+    {
+      "plats": 7,
+      "namn": "Tobbe Nilsson",
+      "tid": "4.47"
+    },
+    {
+      "plats": 8,
+      "namn": "Camilla Nilsson",
+      "tid": "4.48"
+    },
+    {
+      "plats": 9,
+      "namn": "Emma Lundgren",
+      "tid": "5.02"
+    },
+    {
+      "plats": 10,
+      "namn": "Mille Åberg",
+      "tid": "5.05"
+    },
+    {
+      "plats": 11,
+      "namn": "Elly Andersson",
+      "tid": "5.11"
+    },
+    {
+      "plats": 12,
+      "namn": "Gustav Andersson",
+      "tid": "5.12"
+    },
+    {
+      "plats": 13,
+      "namn": "Nelly Nilsson",
+      "tid": "5.32"
+    },
+    {
+      "plats": 14,
+      "namn": "Ella Edström",
+      "tid": "5.38"
+    },
+    {
+      "plats": 15,
+      "namn": "Tomas Edström",
+      "tid": "5.43"
+    },
+    {
+      "plats": 16,
+      "namn": "Ronja Grahn",
+      "tid": "5.47"
+    },
+    {
+      "plats": 17,
+      "namn": "Signe Ögren",
+      "tid": "5.48"
+    },
+    {
+      "plats": 18,
+      "namn": "Hannes Boström",
+      "tid": "5.59"
+    },
+    {
+      "plats": 19,
+      "namn": "Ejvind Boström",
+      "tid": "6.10"
+    },
+    {
+      "plats": 20,
+      "namn": "Laura Grahn",
+      "tid": "6.20"
+    },
+    {
+      "plats": 21,
+      "namn": "Hildur Jansson Lindberg",
+      "tid": "6.12"
+    },
+    {
+      "plats": 22,
+      "namn": "Fanny Ekerfalk Lövgren",
+      "tid": "6.14"
+    },
+    {
+      "plats": 23,
+      "namn": "Melinda Sellbom",
+      "tid": "6.15"
+    },
+    {
+      "plats": 24,
+      "namn": "Lava Juliusson",
+      "tid": "6.16"
+    },
+    {
+      "plats": 25,
+      "namn": "Saga Andersson",
+      "tid": "6.18"
+    },
+    {
+      "plats": 26,
+      "namn": "Ebbot Juliusson",
+      "tid": "6.22"
+    },
+    {
+      "plats": 27,
+      "namn": "Johanna Lundgren",
+      "tid": "6.30"
+    },
+    {
+      "plats": 28,
+      "namn": "Ida Söderberg",
+      "tid": "6.30"
+    },
+    {
+      "plats": 29,
+      "namn": "Helix Grahn",
+      "tid": "6.32"
+    },
+    {
+      "plats": 30,
+      "namn": "Kerstin Sundström",
+      "tid": "6.33"
+    },
+    {
+      "plats": 31,
+      "namn": "Vega Alnqvist",
+      "tid": "7.06"
+    },
+    {
+      "plats": 32,
+      "namn": "Flora Boström",
+      "tid": "7.10"
+    },
+    {
+      "plats": 33,
+      "namn": "Nadja Dolgova",
+      "tid": "7.12"
+    },
+    {
+      "plats": 34,
+      "namn": "Mio Söderberg",
+      "tid": "7.27"
+    },
+    {
+      "plats": 35,
+      "namn": "Alice Hägglund",
+      "tid": "7.33"
+    },
+    {
+      "plats": 36,
+      "namn": "August Wernersson Grundström",
+      "tid": "7.54"
+    },
+    {
+      "plats": 37,
+      "namn": "Liam Holmberg",
+      "tid": "7.58"
+    },
+    {
+      "plats": 38,
+      "namn": "Jack Sundqvist",
+      "tid": "7.59"
+    },
+    {
+      "plats": 39,
+      "namn": "Majken Pavval",
+      "tid": "8.14"
+    },
+    {
+      "plats": 40,
+      "namn": "Markus Pavval",
+      "tid": "8.15"
+    },
+    {
+      "plats": 41,
+      "namn": "Frank Alnqvist",
+      "tid": "8.50"
+    },
+    {
+      "plats": 42,
+      "namn": "Amanda Alnqvist",
+      "tid": "8.51"
+    },
+    {
+      "plats": 43,
+      "namn": "Dante Wernersson Grundström",
+      "tid": "9.02"
+    },
+    {
+      "plats": 44,
+      "namn": "Dennis Grundström",
+      "tid": "9.03"
+    },
+    {
+      "plats": 45,
+      "namn": "Robin Svanbro",
+      "tid": "9.38"
+    },
+    {
+      "plats": 46,
+      "namn": "Ann-Mari Juliusson",
+      "tid": "10.57"
+    },
+    {
+      "plats": 47,
+      "namn": "Johan Åberg",
+      "tid": "10.58"
+    },
+    {
+      "plats": 48,
+      "namn": "Kenneth Juliusson",
+      "tid": "10.59"
+    },
+    {
+      "plats": 49,
+      "namn": "Vilmer Lundgren",
+      "tid": "11.04"
+    },
+    {
+      "plats": 50,
+      "namn": "Björn Hökerberg",
+      "tid": "11.06"
+    },
+    {
+      "plats": 51,
+      "namn": "Heidi Hökerberg",
+      "tid": "11.39"
+    },
+    {
+      "plats": 52,
+      "namn": "Rocco Nord Arvidsson",
+      "tid": "11.46"
+    },
+    {
+      "plats": 53,
+      "namn": "Linn Arvidsson",
+      "tid": "11.47"
+    },
+    {
+      "plats": 54,
+      "namn": "Vincent Lundgren",
+      "tid": "12.31"
+    },
+    {
+      "plats": 55,
+      "namn": "Valter Lundgren",
+      "tid": "12.32"
+    },
+    {
+      "plats": 56,
+      "namn": "Tommy Lundgren",
+      "tid": "12.33"
+    },
+    {
+      "plats": 57,
+      "namn": "Juni Söderberg",
+      "tid": "12.48"
+    },
+    {
+      "plats": 58,
+      "namn": "Max Söderberg",
+      "tid": "12.49"
+    },
+    {
+      "plats": 59,
+      "namn": "Nikki Nord Arvidsson",
+      "tid": "13.20"
+    },
+    {
+      "plats": 60,
+      "namn": "Joel Arvidsson",
+      "tid": "13.21"
+    }
+  ]
+},
     {
       "nr": 7,
       "dag": "Fredag",
