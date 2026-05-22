@@ -201,6 +201,14 @@ h3 {
   border-radius: 20px; padding: 4px 11px; margin-left: 8px; flex-shrink: 0;
 }
 
+.event-badge {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--gc-brown);
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
 /* ── TOTALSTÄLLNING ── */
 .standing-table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
 .standing-table td { padding: 0.55rem 0; border-bottom: 0.5px solid var(--gc-border); font-size: 14px; }
@@ -348,6 +356,7 @@ h3 {
   .results-title         { font-size: 22px; }
   .res-name, .res-tid    { font-size: 17px; }
   .poem-body             { font-size: 16px; }
+  .event-badge           { font-size: 14px; }
 
 
   /* Fix för startsidan */

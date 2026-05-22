@@ -144,23 +144,24 @@ async function init() {
         <span class="result-pill">Resultat →</span>
       </a>`;
     }
-    if (state === 'next') {
-      return `<div class="runda-row next">
-        <div class="runda-nr">Runda ${r.nr}</div>
-        <div class="runda-info">
-          <div class="runda-dag">${dateLabel}</div>
-          <div class="runda-dist">${r.stracka_meter} m</div>
-        </div>
-        <span class="next-badge">Nästa</span>
-      </div>`;
-    }
-    return `<div class="runda-row upcoming">
+   if (state === 'next') {
+    return `<div class="runda-row next">
       <div class="runda-nr">Runda ${r.nr}</div>
       <div class="runda-info">
         <div class="runda-dag">${dateLabel}</div>
         <div class="runda-dist">${r.stracka_meter} m</div>
       </div>
+      ${r.event ? `<span class="event-badge">${r.event}</span>` : '<span class="next-badge">Nästa</span>'}
     </div>`;
+  }
+  return `<div class="runda-row upcoming">
+    <div class="runda-nr">Runda ${r.nr}</div>
+    <div class="runda-info">
+      <div class="runda-dag">${dateLabel}</div>
+      <div class="runda-dist">${r.stracka_meter} m</div>
+    </div>
+    ${r.event ? `<span class="event-badge">${r.event}</span>` : ''}
+  </div>`;
   }).join('');
 
   // Standings
