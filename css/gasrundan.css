@@ -104,6 +104,11 @@ header {
   padding: 1.25rem 0 0.6rem;
 }
 
+
+.knytkalas-section p {
+  margin-bottom: 1rem;
+}
+
 /* -- GENERAL TYPOGRAPHY -- */
 h3 {
   font-family: var(--gc-andika);
