@@ -100,7 +100,7 @@ header {
 
 
 .section-head {
-  font-family: var(--gc-andika); font-weight: 700; font-size: 19px;
+  font-family: var(--gc-andika); font-weight: 700; font-size: 22px;
   padding: 1.25rem 0 0.6rem;
 }
 
@@ -347,7 +347,7 @@ h3 {
   .main--wide  { max-width: 1060px; }
 
   /* Typografi-boost desktop */
-  .section-head          { font-size: 22px; }
+  .section-head          { font-size: 24px; }
   .runda-nr              { font-size: 18px; }
   .runda-dag             { font-size: 15px; }
   .runda-dist            { font-size: 14px; }
