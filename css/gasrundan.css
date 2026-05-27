@@ -216,7 +216,7 @@ h3 {
 .event-badge::before {
   content: '✦ ';
   font-style: normal;
-  font-size: 10px;
+  font-size: 17px;
 }
 
 /* ── TOTALSTÄLLNING ── */
