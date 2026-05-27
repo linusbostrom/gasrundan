@@ -209,8 +209,14 @@ h3 {
 .event-badge {
   font-size: 13px;
   font-style: italic;
-  color: var(--gc-brown);
+  color: var(--gc-orange);
   margin-left: 8px;
+  text-align: right;
+}
+.event-badge::before {
+  content: '✦ ';
+  font-style: normal;
+  font-size: 10px;
 }
 
 /* ── TOTALSTÄLLNING ── */
