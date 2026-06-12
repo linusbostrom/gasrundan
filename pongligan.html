@@ -47,7 +47,7 @@ function fmtPts(p) {
 }
 
 function scrollSubNavToActive() {
-  const pills = document.querySelector('.sub-nav-pills');
+  const pills = document.querySelector('.sub-nav');
   const active = pills && pills.querySelector('.sub-nav-pill.active');
   if (active && pills) {
     pills.scrollLeft = active.offsetLeft - 4;
