@@ -28,7 +28,7 @@
      <img src="img/gasrundan-50.svg" alt="50 år" class="jubileum-emblem-img">
   </div>
   <div class="tagline-strip">
-    Löptävlingar i Arvidsjaur för hela familjen
+    En serie korta löptävlingar i Arvidsjaur för hela familjen
   </div>
 </header>
 
@@ -44,6 +44,14 @@
 <script>
 function fmtPts(p) {
   return Number.isInteger(p) ? p + ' p' : p.toFixed(1) + ' p';
+}
+
+function scrollSubNavToActive() {
+  const pills = document.querySelector('.sub-nav-pills');
+  const active = pills && pills.querySelector('.sub-nav-pill.active');
+  if (active && pills) {
+    pills.scrollLeft = active.offsetLeft - 4;
+  }
 }
 
 async function init() {
@@ -78,6 +86,7 @@ async function init() {
 
   if (!stallning.length || !doneRundor.length) {
 document.getElementById('sub-nav-container').innerHTML = subNavHTML;
+scrollSubNavToActive();
 main.innerHTML = `
       <h1 class="section-head" style="padding-top:1.25rem">Poängliga</h1>
       <p class="standing-note">Inga rundor avklarade ännu — poängligan publiceras efter runda 1.</p>`;

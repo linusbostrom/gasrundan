@@ -15,7 +15,7 @@
      <img src="img/gasrundan-50.svg" alt="50 år" class="jubileum-emblem-img">
   </div>
   <div class="tagline-strip">
-    Löptävlingar i Arvidsjaur för hela familjen
+    En serie korta löptävlingar i Arvidsjaur för hela familjen
   </div>
 </header>
 
@@ -37,6 +37,14 @@ function formatDate(dateStr, dag) {
 
 function formatPlats(plats) {
   return String(plats).padStart(2, '0') + ')';
+}
+
+function scrollSubNavToActive() {
+  const pills = document.querySelector('.sub-nav-pills');
+  const active = pills && pills.querySelector('.sub-nav-pill.active');
+  if (active && pills) {
+    pills.scrollLeft = active.offsetLeft - 4;
+  }
 }
 
 async function init() {
@@ -137,6 +145,7 @@ async function init() {
     : `<p class="standing-note">Resultaten är inte publicerade ännu — kom tillbaka senare!</p>`;
 
   document.getElementById('sub-nav-container').innerHTML = subNavHTML;
+  scrollSubNavToActive();
 main.innerHTML = introHTML + `
     <div class="res-desktop-wrap">
       ${artikelHTML}
