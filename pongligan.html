@@ -47,10 +47,10 @@ function fmtPts(p) {
 }
 
 function scrollSubNavToActive() {
-  const pills = document.querySelector('.sub-nav');
-  const active = pills && pills.querySelector('.sub-nav-pill.active');
-  if (active && pills) {
-    pills.scrollLeft = active.offsetLeft - 22;
+  const nav = document.querySelector('.sub-nav');
+  const active = nav && nav.querySelector('.sub-nav-pill.active');
+  if (nav && active) {
+    nav.scrollLeft = active.offsetLeft + active.closest('.sub-nav-pills').offsetLeft - 22;
   }
 }
 
